@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@layer base {
+  /* Map Figma custom font families to authentic OTF files from public/fonts/ */
+  @font-face {
+    font-family: 'PP Palma:Fizzy Heavy';
+    src: url('/fonts/PPPalma-FizzyHeavy.otf') format('opentype'), local('PP Palma Fizzy Heavy'), local('PPPalma-FizzyHeavy'), local('PP Palma');
+    font-weight: 800;
+  }
+  @font-face {
+    font-family: 'PP Palma';
+    src: url('/fonts/PPPalma-FizzyHeavy.otf') format('opentype'), local('PP Palma Fizzy Heavy'), local('PPPalma-FizzyHeavy'), local('PP Palma');
+    font-weight: 800;
+  }
+  @font-face {
+    font-family: 'Roobert:Regular';
+    src: url('/fonts/Roobert-Regular.otf') format('opentype'), local('Roobert Regular'), local('Roobert'), local('Plus Jakarta Sans');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Roobert:Medium';
+    src: url('/fonts/Roobert-Medium.otf') format('opentype'), local('Roobert Medium'), local('Roobert'), local('Plus Jakarta Sans');
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: 'Roobert:SemiBold';
+    src: url('/fonts/Roobert-SemiBold.otf') format('opentype'), local('Roobert SemiBold'), local('Roobert'), local('Plus Jakarta Sans');
+    font-weight: 600;
+  }
+  @font-face {
+    font-family: 'Roobert:Bold';
+    src: url('/fonts/Roobert-SemiBold.otf') format('opentype'), local('Roobert Bold'), local('Roobert'), local('Plus Jakarta Sans');
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: 'Roobert';
+    src: url('/fonts/Roobert-Regular.otf') format('opentype'), local('Roobert');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Roobert';
+    src: url('/fonts/Roobert-Medium.otf') format('opentype'), local('Roobert Medium');
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: 'Roobert';
+    src: url('/fonts/Roobert-SemiBold.otf') format('opentype'), local('Roobert SemiBold');
+    font-weight: 600;
+  }
+}
+
+/* Custom utility overrides so Figma's font-['PP_Palma:Fizzy_Heavy'] and font-['Roobert:*'] render with clean typographic hierarchy */
+[class*="font-['PP_Palma"] {
+  font-family: 'PP Palma:Fizzy Heavy', 'PP Palma', 'PP Palma Fizzy Heavy', 'PPPalma-FizzyHeavy', 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 800 !important;
+}
+
+[class*="font-['Roobert:Regular']"] {
+  font-family: 'Roobert', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 400 !important;
+}
+
+[class*="font-['Roobert:Medium']"] {
+  font-family: 'Roobert', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 500 !important;
+}
+
+[class*="font-['Roobert:SemiBold']"] {
+  font-family: 'Roobert', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 600 !important;
+}
+
+[class*="font-['Roobert:Bold']"] {
+  font-family: 'Roobert', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 700 !important;
+}
+
+[class*="font-['Short_Stack"] {
+  font-family: 'Short Stack', cursive, sans-serif !important;
+}
+
+[class*="font-['Cascadia_Code"] {
+  font-family: 'Cascadia Code', 'Space Mono', monospace !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #04635d;
+}
+::-webkit-scrollbar-thumb {
+  background: #30b7ae;
+  border-radius: 9999px;
+}
