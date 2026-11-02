@@ -33,7 +33,6 @@ import {
   FigmaTestimonial7,
   FigmaWhatsNew,
   FigmaFooter,
-  FigmaMailGraphic,
 } from "./figmaSections";
 
 const FAQ_DATA = [
@@ -100,6 +99,12 @@ export default function ReviewsLandingPage() {
     };
     updateDimensions();
     window.addEventListener("resize", updateDimensions);
+    if (window.location.hash) {
+      setTimeout(() => {
+        const el = document.querySelector(window.location.hash);
+        if (el) el.scrollIntoView({ behavior: "instant" });
+      }, 150);
+    }
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
@@ -301,7 +306,7 @@ export default function ReviewsLandingPage() {
             transformOrigin: "top center",
             pointerEvents: navHidden ? "none" : "auto",
           }}
-          className="pointer-events-auto backdrop-blur-xl rounded-[1000px] shadow-[0_8px_32px_rgba(1,89,83,0.12)] border border-white/40 transition-shadow hover:shadow-[0_12px_40px_rgba(1,89,83,0.18)]"
+          className="pointer-events-auto backdrop-blur-2xl bg-white/75 rounded-[1000px] shadow-[0_12px_36px_rgba(1,89,83,0.16)] border border-white/60 transition-all hover:bg-white/85 hover:shadow-[0_16px_48px_rgba(1,89,83,0.22)]"
         >
           <FigmaHeader />
         </motion.div>
@@ -371,7 +376,6 @@ export default function ReviewsLandingPage() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url("${Assets.imgBg}"), linear-gradient(180deg, #c2f4da 0%, #e8ffc8 50%, #fefcdf 100%)`,
                 backgroundImage: `url("${Assets.imgBg}"), linear-gradient(180deg, #dcf3ee 0%, #fefdf0 100%)`,
               }}
             />
@@ -410,7 +414,7 @@ export default function ReviewsLandingPage() {
               }}
               className="relative w-[1440px] shrink-0"
             >
-              <FigmaHero3Content />
+              <FigmaHero3Content progress={stackProgress} />
             </motion.div>
           </motion.div>
 
@@ -447,13 +451,22 @@ export default function ReviewsLandingPage() {
       <section
         id="ai-insights"
         data-section="ai-insights"
-        className="relative w-full overflow-hidden flex justify-center bg-[#d8f8e1]"
+        className="relative w-full overflow-hidden flex justify-center bg-[#e1f4f2]"
       >
+        {/* Full-bleed background spanning entire screen width so no side mismatch */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <img
+            alt=""
+            className="w-full h-full object-cover"
+            src={Assets.imgBackground}
+          />
+        </div>
+
         <div
           style={{
             transform: `scale(${viewportScale})`,
             transformOrigin: "top center",
-            height: `${1325 * viewportScale}px`,
+            height: `${1380 * viewportScale}px`,
           }}
           className="relative w-[1440px] shrink-0"
         >
@@ -830,63 +843,34 @@ export default function ReviewsLandingPage() {
       </section>
 
       {/* ====================================================================
-          REQUIREMENT 4F: INTERACTIVE FAQ ACCORDION + FLOATING MAIL GRAPHIC
+          REQUIREMENT 4F: INTERACTIVE FAQ ACCORDION (Figma node 198:34207)
       ==================================================================== */}
       <section
         id="faq"
         data-section="faq"
-        className="relative w-full overflow-hidden flex justify-center bg-[#04635d]"
+        className="relative w-full overflow-hidden flex justify-center bg-[#04635d] scroll-mt-[120px]"
       >
         <div
           style={{
             transform: `scale(${viewportScale})`,
             transformOrigin: "top center",
           }}
-          className="bg-[#04635d] content-stretch flex flex-col items-center overflow-clip px-[80px] py-[96px] relative shrink-0 w-[1440px]"
+          className="bg-[#04635d] content-stretch flex flex-col items-center px-[80px] pt-[184px] pb-[160px] relative shrink-0 w-[1440px]"
           data-node-id="198:34207"
           data-name="FAQ section"
         >
-          <div className="content-start flex flex-wrap gap-[64px] items-start max-w-[1280px] relative shrink-0 w-full">
-            {/* Left Column: SUPPORT + Frequently asked questions + Floating Yellow Envelope */}
+          <div className="content-start flex flex-wrap gap-[64px] items-start max-w-[1280px] px-[80px] relative shrink-0 w-full">
+            {/* Left Column: SUPPORT + Frequently asked questions */}
             <div
               data-section="faq-left"
-              className="flex flex-col justify-between items-start w-[576px] relative min-h-[640px]"
+              className="sticky top-[140px] flex flex-col gap-[32px] items-start w-[528px] shrink-0"
             >
-              <div className="content-stretch flex flex-col gap-[32px] items-start not-italic relative shrink-0">
-                <p className="font-['Roobert:SemiBold'] leading-[1.2] relative shrink-0 text-[24px] text-[rgba(48,183,174,0.8)] tracking-[-0.48px]">
-                  SUPPORT
-                </p>
-                <p className="font-['PP_Palma:Fizzy_Heavy'] leading-none relative shrink-0 text-[72px] text-[rgba(255,255,255,0.4)] tracking-[-1.44px] w-[576px]">
-                  Frequently asked questions
-                </p>
-              </div>
-
-              {/* Floating Yellow Envelope Graphic (Figma node 151:12987) */}
-              <motion.div
-                data-section="faq-envelope"
-                animate={{
-                  y: [0, -14, 0],
-                  rotate: [0, -2.5, 0],
-                }}
-                transition={{
-                  duration: 5.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                whileHover={{ scale: 1.05, rotate: 3 }}
-                className="relative mt-[40px] w-[357px] h-[394px] cursor-pointer"
-              >
-                <div
-                  className="w-full h-full mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[7.144px_11.191px] mask-size-[356.775px_407.03px] relative rounded-[9px]"
-                  style={{ maskImage: `url("${Assets.imgImage4902}")` }}
-                >
-                  <img
-                    alt="Time to start reviewing envelope"
-                    className="absolute inset-0 max-w-none object-bottom pointer-events-none rounded-[9px] size-full"
-                    src={Assets.imgImage4903}
-                  />
-                </div>
-              </motion.div>
+              <p className="font-['Roobert:SemiBold'] leading-[1.2] relative shrink-0 text-[24px] text-[rgba(48,183,174,0.8)] tracking-[-0.48px]">
+                SUPPORT
+              </p>
+              <p className="font-['PP_Palma:Fizzy_Heavy'] leading-none relative shrink-0 text-[72px] text-[rgba(255,255,255,0.4)] tracking-[-1.44px] w-[528px]">
+                Frequently asked questions
+              </p>
             </div>
 
             {/* Right Column: Interactive Accordion for all 7 FAQ items */}
