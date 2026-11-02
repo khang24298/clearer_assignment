@@ -431,29 +431,6 @@ export default function ReviewsLandingPage() {
               <FigmaHero3Content progress={stackProgress} />
             </motion.div>
           </motion.div>
-
-          {/* Interactive Hero Stack Indicator (Right Rail) */}
-          <div className="absolute right-6 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-2.5 bg-white/70 backdrop-blur-md p-2 rounded-full shadow-lg border border-black/5">
-            {[
-              { idx: 0, label: "01 · Collect reviews" },
-              { idx: 1, label: "02 · Get found by AI" },
-              { idx: 2, label: "03 · Sell more" },
-            ].map((item) => (
-              <button
-                key={item.idx}
-                onClick={() => scrollToHeroSlide(item.idx)}
-                title={item.label}
-                className={`group relative flex items-center justify-center rounded-full transition-all duration-300 cursor-pointer ${activeHero === item.idx
-                  ? "w-3.5 h-10 bg-[#057c74]"
-                  : "w-3.5 h-3.5 bg-[#057c74]/25 hover:bg-[#057c74]/50"
-                  }`}
-              >
-                <span className="pointer-events-none absolute right-full mr-3 px-2.5 py-1 rounded-lg bg-[#015953] text-white text-xs font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow">
-                  {item.label}
-                </span>
-              </button>
-            ))}
-          </div>
         </div>
       </section>
 
