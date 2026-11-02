@@ -519,6 +519,12 @@ export default function ReviewsLandingPage() {
         ref={storiesSectionRef}
         className="relative w-full overflow-hidden flex justify-center bg-[#f4fbe6]"
       >
+        {/* Static background: not affected by the image scale animation */}
+        <img
+          alt=""
+          className="absolute inset-0 size-full object-cover pointer-events-none select-none"
+          src={Assets.imgBackground1}
+        />
         <div
           style={{
             transform: `scale(${viewportScale})`,
@@ -527,12 +533,7 @@ export default function ReviewsLandingPage() {
           }}
           className="relative w-[1440px] shrink-0"
         >
-          <motion.div
-            style={{ scale: storiesScale, y: storiesY }}
-            className="w-full h-full"
-          >
-            <FigmaCustomerStories />
-          </motion.div>
+          <FigmaCustomerStories imageScale={storiesScale} imageY={storiesY} />
         </div>
       </section>
 
@@ -825,7 +826,7 @@ export default function ReviewsLandingPage() {
             transform: `scale(${viewportScale})`,
             transformOrigin: "top center",
           }}
-          className="bg-[#04635d] content-stretch flex flex-col items-center overflow-clip py-[96px] relative shrink-0 w-[1440px]"
+          className="bg-[#04635d] content-stretch flex flex-col items-center overflow-clip py-[96px] relative shrink-0"
           data-node-id="198:34207"
           data-name="FAQ section"
         >

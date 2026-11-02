@@ -903,7 +903,7 @@ export function FigmaAiInsights() {
       data-name="AI insights"
     >
       <div
-        className="-translate-x-1/2 absolute h-[1325px] left-1/2 top-0 w-[1440px] pointer-events-none"
+        className="-translate-x-1/2 absolute h-[1325px] left-1/2 top-0 pointer-events-none"
         data-node-id="184:25901"
         data-name="Background"
       >
@@ -937,7 +937,7 @@ export function FigmaAiInsights() {
               className="w-full flex justify-center"
             >
               <p
-                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] min-w-full not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px]"
+                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] min-w-full not-italic relative shrink-0 text-[90px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px]"
                 data-node-id="164:20414"
               >
                 AI Insights and Analytics
@@ -956,7 +956,7 @@ export function FigmaAiInsights() {
               data-node-id="164:20426"
             >
               <p
-                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] not-italic text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
+                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] not-italic text-[90px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
                 data-node-id="164:20427"
               >
                 that turn customer
@@ -974,7 +974,7 @@ export function FigmaAiInsights() {
               className="w-full flex justify-center"
             >
               <p
-                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
+                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] not-italic relative shrink-0 text-[90px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
                 data-node-id="164:20443"
               >
                 feedback into growth
@@ -1009,12 +1009,9 @@ export function FigmaAiInsights() {
   );
 }
 
-export function FigmaCustomerStories() {
+export function FigmaCustomerStories({ imageScale, imageY }: { imageScale?: MotionValue<number>; imageY?: MotionValue<number> }) {
   return (
-    <div className="h-[1099px] relative shrink-0 w-[1440px]" data-node-id="164:20214" style={{ backgroundImage: "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 1440 1099' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-0.86591 46.326 -100.05 -1.8701 766.14 596.31)'><stop stop-color='rgba(254,252,229,1)' offset='0.36801'/><stop stop-color='rgba(221,244,238,1)' offset='1'/></radialGradient></defs></svg>\")" }} data-name="customer stories">
-      <div className="-translate-x-1/2 absolute h-[1099px] left-1/2 top-[0.14px] w-[1440px]" data-node-id="198:34298" data-name="Background">
-        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBackground1} />
-      </div>
+    <div className="h-[1099px] relative shrink-0 w-[1440px]" data-node-id="164:20214" data-name="customer stories">
       <div className="absolute content-stretch flex flex-col gap-[40px] items-start left-[80px] top-[80px] w-[781px]" data-node-id="164:20215" data-name="Heading and subheading">
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[32px] items-start not-italic relative shrink-0 w-full" data-node-id="164:20336">
           <p className="font-['Roobert:SemiBold'] leading-[1.2] relative shrink-0 text-[#30b7ae] text-[24px] tracking-[-0.48px] w-full" data-node-id="184:27481">
@@ -1031,13 +1028,13 @@ export function FigmaCustomerStories() {
           </p>
         </div>
       </div>
-      <div className="absolute left-[157px] top-[229.94px] w-[1120px] h-[783px]" data-node-id="164:20218" data-name="main">
+      <motion.div style={{ scale: imageScale, y: imageY }} className="absolute left-[157px] top-[229.94px] w-[1120px] h-[783px]" data-node-id="164:20218" data-name="main">
         <img
           alt="Customer stories"
           className="size-full object-contain pointer-events-none select-none"
           src={imgCustomerStories}
         />
-      </div>
+      </motion.div>
     </div>
 
   );
