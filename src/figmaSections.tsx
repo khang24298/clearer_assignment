@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { motion, useTransform, type MotionValue } from "framer-motion";
+import { motion, useTransform, useMotionValue, type MotionValue } from "framer-motion";
 import * as Assets from "./figmaAssets";
 const {
   Logo,
@@ -490,11 +490,15 @@ export function FigmaHero2Content() {
   );
 }
 
-export function FigmaHero3Content() {
+interface Hero3Props {
+  progress?: MotionValue<number>;
+}
+
+export function FigmaHero3Content({ progress }: Hero3Props) {
   return (
     <div className="bg-[#fefcdf] h-[1262px] mx-auto overflow-clip relative shrink-0 w-[1440px]" data-node-id="164:14229" data-name="hero 3">
-      <Hero3Artwork />
-      <div className="absolute content-stretch flex flex-col items-center left-[112px] right-[112px] top-[181px]" data-node-id="164:14232" data-name="Content">
+      <Hero3Artwork progress={progress} />
+      <div className="absolute content-stretch flex flex-col items-center left-[112px] right-[112px] top-[181px] z-10 pointer-events-none" data-node-id="164:14232" data-name="Content">
         <p className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] h-[140px] leading-none not-italic relative shrink-0 text-[140px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-2.8px] w-[1200px]" data-node-id="164:14233">
           Sell more.
         </p>
@@ -504,11 +508,57 @@ export function FigmaHero3Content() {
 }
 
 /**
- * Pixel-perfect reproduction of Figma Frame 164:14229 (hero 3).
- * Uses official vector SVGs (imgIllus, imgCircles) and authentic fruit assets
- * with single-mask hardware-accelerated CSS masking.
+ * Pixel-perfect reproduction of Figma Frame 164:14229 (hero 3) & uploaded 3D scene.
+ * Replaces the static pineapple slices with the 4 authentic 3D elements (Box, Bag, Star, Cart Badge)
+ * jumping dynamically from the central Joomi juice can on scroll.
  */
-function Hero3Artwork() {
+function Hero3Artwork({ progress }: Hero3Props) {
+  // If no parent progress is supplied (e.g. standalone render), default to settled rest (value 1)
+  const defaultProgress = useMotionValue(1);
+  const activeProgress = progress ?? defaultProgress;
+
+  // =========================================================================
+  // SCROLL-DRIVEN PARABOLIC JUMP TRANSFORMS (Relative to resting coordinates)
+  // Each element bursts out from the central juice can along a 3D arc,
+  // overshooting slightly at its jump peak before settling into its final position.
+  // =========================================================================
+
+  // 1. Delivery Box (Top-Left)
+  // Launches from can top opening (dx=+230, dy=+115), arcs up to (-70), lands at rest (0, 0)
+  const boxX = useTransform(activeProgress, [0.70, 0.77, 0.84], [230, 85, 0], { clamp: true });
+  const boxY = useTransform(activeProgress, [0.70, 0.77, 0.84], [115, -70, 0], { clamp: true });
+  const boxScale = useTransform(activeProgress, [0.70, 0.77, 0.84], [0.1, 1.22, 1], { clamp: true });
+  const boxRotate = useTransform(activeProgress, [0.70, 0.77, 0.84], [35, -28, -15.8], { clamp: true });
+  const boxOpacity = useTransform(activeProgress, [0.70, 0.73, 0.84], [0, 1, 1], { clamp: true });
+
+  // 2. Shopping Bag (Top-Right)
+  // Launches from can top opening (dx=-270, dy=+20), arcs up to (-90), lands at rest (0, 0)
+  const bagX = useTransform(activeProgress, [0.72, 0.79, 0.86], [-270, -100, 0], { clamp: true });
+  const bagY = useTransform(activeProgress, [0.72, 0.79, 0.86], [20, -90, 0], { clamp: true });
+  const bagScale = useTransform(activeProgress, [0.72, 0.79, 0.86], [0.1, 1.20, 1], { clamp: true });
+  const bagRotate = useTransform(activeProgress, [0.72, 0.79, 0.86], [-25, 22, 10.2], { clamp: true });
+  const bagOpacity = useTransform(activeProgress, [0.72, 0.75, 0.86], [0, 1, 1], { clamp: true });
+
+  // 3. Yellow Star (Mid-Left Foreground)
+  // Launches from can body (dx=+360, dy=-190), arcs up to (-90), drops into foreground (0, 0)
+  const starX = useTransform(activeProgress, [0.74, 0.82, 0.89], [360, 130, 0], { clamp: true });
+  const starY = useTransform(activeProgress, [0.74, 0.82, 0.89], [-190, -90, 0], { clamp: true });
+  const starScale = useTransform(activeProgress, [0.74, 0.82, 0.89], [0.1, 1.25, 1], { clamp: true });
+  const starRotate = useTransform(activeProgress, [0.74, 0.82, 0.89], [-40, 30, 18.35], { clamp: true });
+  const starOpacity = useTransform(activeProgress, [0.74, 0.77, 0.89], [0, 1, 1], { clamp: true });
+
+  // 4. Green Shopping Cart Badge (Bottom-Right Foreground)
+  // Launches from can lower body (dx=-290, dy=-200), arcs up to (-110), drops into foreground (0, 0)
+  const cartX = useTransform(activeProgress, [0.76, 0.84, 0.92], [-290, -110, 0], { clamp: true });
+  const cartY = useTransform(activeProgress, [0.76, 0.84, 0.92], [-200, -110, 0], { clamp: true });
+  const cartScale = useTransform(activeProgress, [0.76, 0.84, 0.92], [0.1, 1.22, 1], { clamp: true });
+  const cartRotate = useTransform(activeProgress, [0.76, 0.84, 0.92], [25, -22, -12.5], { clamp: true });
+  const cartOpacity = useTransform(activeProgress, [0.76, 0.79, 0.92], [0, 1, 1], { clamp: true });
+
+  // 5. Central Can subtle tactile reaction pulse when items burst out
+  const canScale = useTransform(activeProgress, [0.70, 0.76, 0.84, 0.92], [1.0, 0.97, 1.025, 1.0], { clamp: true });
+  const canY = useTransform(activeProgress, [0.70, 0.76, 0.84, 0.92], [0, 4, -4, 0], { clamp: true });
+
   return (
     <div
       className="absolute inset-0 overflow-hidden pointer-events-none select-none"
@@ -518,35 +568,62 @@ function Hero3Artwork() {
           "radial-gradient(ellipse 48% 44% at 50% 64%, rgb(255, 248, 175) 0%, rgb(254, 252, 227) 65%, rgb(254, 252, 223) 100%)",
       }}
     >
-      {/* 1. Large Pineapple Slice (Right) - Figma image 10 (164:16641) */}
-      <div className="absolute h-[268px] left-[896px] overflow-hidden top-[430px] w-[268px] rotate-[29deg] drop-shadow-sm">
-        <img
-          alt=""
-          className="absolute inset-0 h-full w-full object-contain pointer-events-none"
-          src={imgImage7}
-        />
-      </div>
+      {/* 1. Delivery Box (Top-Left, z-10 behind can) */}
+      <motion.div
+        style={{
+          x: boxX,
+          y: boxY,
+          scale: boxScale,
+          rotate: boxRotate,
+          opacity: boxOpacity,
+        }}
+        className="absolute left-[420px] top-[380px] w-[140px] h-[130px] z-10 origin-center pointer-events-none drop-shadow-md"
+      >
+        <motion.div
+          animate={{ y: [0, -7, 0], rotate: [0, 1.5, 0] }}
+          transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
+          className="w-full h-full -scale-x-100"
+        >
+          <img
+            alt="3D Delivery Package"
+            className="w-full h-full object-contain pointer-events-none select-none"
+            src={imgBox}
+          />
+        </motion.div>
+      </motion.div>
 
-      {/* 2. Triangular Pineapple Chunk (Left) - Figma image 11 (164:16642) */}
-      <div className="absolute h-[176px] left-[276px] overflow-hidden top-[690px] w-[176px] rotate-[31deg] drop-shadow-sm">
-        <img
-          alt=""
-          className="absolute inset-0 h-full w-full object-contain pointer-events-none"
-          src={imgImage8}
-        />
-      </div>
+      {/* 2. Shopping Bag (Top-Right, z-10 behind can) */}
+      <motion.div
+        style={{
+          x: bagX,
+          y: bagY,
+          scale: bagScale,
+          rotate: bagRotate,
+          opacity: bagOpacity,
+        }}
+        className="absolute left-[880px] top-[430px] w-[220px] h-[220px] z-10 origin-center pointer-events-none drop-shadow-md"
+      >
+        <motion.div
+          animate={{ y: [0, -10, 0], rotate: [0, -2, 0] }}
+          transition={{ duration: 4.1, repeat: Infinity, ease: "easeInOut" }}
+          className="w-full h-full -scale-x-100"
+        >
+          <img
+            alt="3D Shopping Bag"
+            className="w-full h-full object-contain pointer-events-none select-none"
+            src={imgBag}
+          />
+        </motion.div>
+      </motion.div>
 
-      {/* 3. Tiny Pineapple Bit (Bottom-Right) - Figma image 12 (164:16640) */}
-      <div className="absolute h-[56px] left-[920px] overflow-hidden top-[860px] w-[56px] rotate-[18deg] drop-shadow-sm">
-        <img
-          alt=""
-          className="absolute inset-0 h-full w-full object-contain pointer-events-none"
-          src={imgImage9}
-        />
-      </div>
-
-      {/* 4. Center Joomi Pineapple Juice Can - Figma Can (164:16278) */}
-      <div className="absolute h-[557px] left-[566px] top-[482px] w-[308px] drop-shadow-[0_18px_36px_rgba(35,72,41,0.08)]">
+      {/* 3. Center Joomi Pineapple Juice Can (z-20) */}
+      <motion.div
+        style={{
+          scale: canScale,
+          y: canY,
+        }}
+        className="absolute h-[557px] left-[566px] top-[482px] w-[308px] z-20 origin-center drop-shadow-[0_18px_36px_rgba(35,72,41,0.08)]"
+      >
         {/* Base 3D Aluminum Can with metallic rim, bottom, and cylindrical shading */}
         <img
           alt="Joomi Pineapple Juice 330ml Can"
@@ -616,7 +693,55 @@ function Hero3Artwork() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
+
+      {/* 4. Yellow Star (Mid-Left Foreground, z-30 with soft depth blur) */}
+      <motion.div
+        style={{
+          x: starX,
+          y: starY,
+          scale: starScale,
+          rotate: starRotate,
+          opacity: starOpacity,
+        }}
+        className="absolute left-[200px] top-[680px] w-[320px] h-[320px] z-30 origin-center pointer-events-none filter blur-[3.5px] drop-shadow-xl"
+      >
+        <motion.div
+          animate={{ y: [0, -12, 0], rotate: [0, 2, 0] }}
+          transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+          className="w-full h-full -scale-x-100"
+        >
+          <img
+            alt="3D Glowing Star"
+            className="w-full h-full object-contain pointer-events-none select-none"
+            src={imgStar}
+          />
+        </motion.div>
+      </motion.div>
+
+      {/* 5. Green Shopping Cart Badge (Bottom-Right Foreground, z-30 with camera depth blur) */}
+      <motion.div
+        style={{
+          x: cartX,
+          y: cartY,
+          scale: cartScale,
+          rotate: cartRotate,
+          opacity: cartOpacity,
+        }}
+        className="absolute left-[720px] top-[660px] w-[580px] h-[520px] z-30 origin-center pointer-events-none filter blur-[4.5px] drop-shadow-2xl"
+      >
+        <motion.div
+          animate={{ y: [0, -8, 0], rotate: [0, -1.5, 0] }}
+          transition={{ duration: 5.4, repeat: Infinity, ease: "easeInOut" }}
+          className="w-full h-full"
+        >
+          <img
+            alt="3D Shopping Cart Badge"
+            className="w-full h-full object-contain pointer-events-none select-none"
+            src={imgCart}
+          />
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
@@ -903,14 +1028,6 @@ export function FigmaAiInsights() {
       data-name="AI insights"
     >
       <div
-        className="-translate-x-1/2 absolute h-[1325px] left-1/2 top-0 w-[1440px] pointer-events-none"
-        data-node-id="184:25901"
-        data-name="Background"
-      >
-        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBackground} />
-      </div>
-
-      <div
         className="content-stretch flex flex-col gap-[55px] items-center relative shrink-0 w-full"
         data-node-id="164:21962"
       >
@@ -922,7 +1039,7 @@ export function FigmaAiInsights() {
           title="Click to replay animation"
         >
           <div
-            className="content-stretch flex flex-col gap-[6px] items-center px-[80px] relative shrink-0 w-full"
+            className="content-stretch flex flex-col gap-[6px] items-center relative shrink-0 w-full"
             data-node-id="164:20402"
             data-name="Heading and subheading"
           >
@@ -934,10 +1051,10 @@ export function FigmaAiInsights() {
                 opacity: { duration: 10, times: [0, 0.03, 0.23, 1], ease: ["linear", [0.5, 0, 0.5, 1], "linear"], repeat: Infinity },
                 y: { duration: 10, times: [0, 0.05, 0.15, 1], ease: ["linear", [0.05, 0.4, 0.5, 1], "linear"], repeat: Infinity },
               }}
-              className="w-full flex justify-center"
+              className="w-full flex justify-center py-1"
             >
               <p
-                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-none min-w-full not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px]"
+                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] min-w-full not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px]"
                 data-node-id="164:20414"
               >
                 AI Insights and Analytics
@@ -952,11 +1069,11 @@ export function FigmaAiInsights() {
                 opacity: { duration: 10, times: [0, 0.23, 0.33, 1], ease: ["linear", [0.5, 0, 0.5, 1], "linear"], repeat: Infinity },
                 y: { duration: 10, times: [0, 0.15, 0.25, 1], ease: ["linear", [0.05, 0.4, 0.5, 1], "linear"], repeat: Infinity },
               }}
-              className="w-full flex justify-center h-[96px]"
+              className="w-full flex justify-center py-1"
               data-node-id="164:20426"
             >
               <p
-                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-none not-italic text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
+                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] not-italic text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
                 data-node-id="164:20427"
               >
                 that turn customer
@@ -971,10 +1088,10 @@ export function FigmaAiInsights() {
                 opacity: { duration: 10, times: [0, 0.35, 0.45, 1], ease: ["linear", [0.5, 0, 0.5, 1], "linear"], repeat: Infinity },
                 y: { duration: 10, times: [0, 0.25, 0.35, 1], ease: ["linear", [0.05, 0.4, 0.5, 1], "linear"], repeat: Infinity },
               }}
-              className="w-full flex justify-center"
+              className="w-full flex justify-center py-1"
             >
               <p
-                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-none not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
+                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
                 data-node-id="164:20443"
               >
                 feedback into growth

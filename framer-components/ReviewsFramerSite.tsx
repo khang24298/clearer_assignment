@@ -11,6 +11,8 @@ import {
   useScroll,
   useTransform,
   useSpring,
+  useMotionValue,
+  type MotionValue,
   AnimatePresence,
 } from "framer-motion";
 
@@ -694,11 +696,15 @@ function FigmaHero2Content() {
   );
 }
 
-function FigmaHero3Content() {
+interface Hero3Props {
+  progress?: MotionValue<number>;
+}
+
+function FigmaHero3Content({ progress }: Hero3Props) {
   return (
     <div className="bg-[#fefcdf] h-[1262px] mx-auto overflow-clip relative shrink-0 w-[1440px]" data-node-id="164:14229" data-name="hero 3">
-      <Hero3Artwork />
-      <div className="absolute content-stretch flex flex-col items-center left-[112px] right-[112px] top-[181px]" data-node-id="164:14232" data-name="Content">
+      <Hero3Artwork progress={progress} />
+      <div className="absolute content-stretch flex flex-col items-center left-[112px] right-[112px] top-[181px] z-10 pointer-events-none" data-node-id="164:14232" data-name="Content">
         <p className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] h-[140px] leading-none not-italic relative shrink-0 text-[140px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-2.8px] w-[1200px]" data-node-id="164:14233">
           Sell more.
         </p>
@@ -707,7 +713,47 @@ function FigmaHero3Content() {
   );
 }
 
-function Hero3Artwork() {
+/**
+ * Pixel-perfect reproduction of Figma Frame 164:14229 (hero 3) & uploaded 3D scene.
+ * Replaces the static pineapple slices with the 4 authentic 3D elements (Box, Bag, Star, Cart Badge)
+ * jumping dynamically from the central Joomi juice can on scroll.
+ */
+function Hero3Artwork({ progress }: Hero3Props) {
+  const defaultProgress = useMotionValue(1);
+  const activeProgress = progress ?? defaultProgress;
+
+  // 1. Delivery Box (Top-Left)
+  const boxX = useTransform(activeProgress, [0.70, 0.77, 0.84], [230, 85, 0], { clamp: true });
+  const boxY = useTransform(activeProgress, [0.70, 0.77, 0.84], [115, -70, 0], { clamp: true });
+  const boxScale = useTransform(activeProgress, [0.70, 0.77, 0.84], [0.1, 1.22, 1], { clamp: true });
+  const boxRotate = useTransform(activeProgress, [0.70, 0.77, 0.84], [35, -28, -15.8], { clamp: true });
+  const boxOpacity = useTransform(activeProgress, [0.70, 0.73, 0.84], [0, 1, 1], { clamp: true });
+
+  // 2. Shopping Bag (Top-Right)
+  const bagX = useTransform(activeProgress, [0.72, 0.79, 0.86], [-270, -100, 0], { clamp: true });
+  const bagY = useTransform(activeProgress, [0.72, 0.79, 0.86], [20, -90, 0], { clamp: true });
+  const bagScale = useTransform(activeProgress, [0.72, 0.79, 0.86], [0.1, 1.20, 1], { clamp: true });
+  const bagRotate = useTransform(activeProgress, [0.72, 0.79, 0.86], [-25, 22, 10.2], { clamp: true });
+  const bagOpacity = useTransform(activeProgress, [0.72, 0.75, 0.86], [0, 1, 1], { clamp: true });
+
+  // 3. Yellow Star (Mid-Left Foreground)
+  const starX = useTransform(activeProgress, [0.74, 0.82, 0.89], [360, 130, 0], { clamp: true });
+  const starY = useTransform(activeProgress, [0.74, 0.82, 0.89], [-190, -90, 0], { clamp: true });
+  const starScale = useTransform(activeProgress, [0.74, 0.82, 0.89], [0.1, 1.25, 1], { clamp: true });
+  const starRotate = useTransform(activeProgress, [0.74, 0.82, 0.89], [-40, 30, 18.35], { clamp: true });
+  const starOpacity = useTransform(activeProgress, [0.74, 0.77, 0.89], [0, 1, 1], { clamp: true });
+
+  // 4. Green Shopping Cart Badge (Bottom-Right Foreground)
+  const cartX = useTransform(activeProgress, [0.76, 0.84, 0.92], [-290, -110, 0], { clamp: true });
+  const cartY = useTransform(activeProgress, [0.76, 0.84, 0.92], [-200, -110, 0], { clamp: true });
+  const cartScale = useTransform(activeProgress, [0.76, 0.84, 0.92], [0.1, 1.22, 1], { clamp: true });
+  const cartRotate = useTransform(activeProgress, [0.76, 0.84, 0.92], [25, -22, -12.5], { clamp: true });
+  const cartOpacity = useTransform(activeProgress, [0.76, 0.79, 0.92], [0, 1, 1], { clamp: true });
+
+  // 5. Central Can subtle tactile reaction pulse
+  const canScale = useTransform(activeProgress, [0.70, 0.76, 0.84, 0.92], [1.0, 0.97, 1.025, 1.0], { clamp: true });
+  const canY = useTransform(activeProgress, [0.70, 0.76, 0.84, 0.92], [0, 4, -4, 0], { clamp: true });
+
   return (
     <div
       className="absolute inset-0 overflow-hidden pointer-events-none select-none"
@@ -717,43 +763,68 @@ function Hero3Artwork() {
           "radial-gradient(ellipse 48% 44% at 50% 64%, rgb(255, 248, 175) 0%, rgb(254, 252, 227) 65%, rgb(254, 252, 223) 100%)",
       }}
     >
-      {/* 1. Large Pineapple Slice (Right) - Figma image 10 (164:16641) */}
-      <div className="absolute h-[268px] left-[896px] overflow-hidden top-[430px] w-[268px] rotate-[29deg] drop-shadow-sm">
-        <img
-          alt=""
-          className="absolute inset-0 h-full w-full object-contain pointer-events-none"
-          src={imgImage7}
-        />
-      </div>
+      {/* 1. Delivery Box (Top-Left, z-10 behind can) */}
+      <motion.div
+        style={{
+          x: boxX,
+          y: boxY,
+          scale: boxScale,
+          rotate: boxRotate,
+          opacity: boxOpacity,
+        }}
+        className="absolute left-[420px] top-[380px] w-[140px] h-[130px] z-10 origin-center pointer-events-none drop-shadow-md"
+      >
+        <motion.div
+          animate={{ y: [0, -7, 0], rotate: [0, 1.5, 0] }}
+          transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
+          className="w-full h-full -scale-x-100"
+        >
+          <img
+            alt="3D Delivery Package"
+            className="w-full h-full object-contain pointer-events-none select-none"
+            src={imgBox}
+          />
+        </motion.div>
+      </motion.div>
 
-      {/* 2. Triangular Pineapple Chunk (Left) - Figma image 11 (164:16642) */}
-      <div className="absolute h-[176px] left-[276px] overflow-hidden top-[690px] w-[176px] rotate-[31deg] drop-shadow-sm">
-        <img
-          alt=""
-          className="absolute inset-0 h-full w-full object-contain pointer-events-none"
-          src={imgImage8}
-        />
-      </div>
+      {/* 2. Shopping Bag (Top-Right, z-10 behind can) */}
+      <motion.div
+        style={{
+          x: bagX,
+          y: bagY,
+          scale: bagScale,
+          rotate: bagRotate,
+          opacity: bagOpacity,
+        }}
+        className="absolute left-[880px] top-[430px] w-[220px] h-[220px] z-10 origin-center pointer-events-none drop-shadow-md"
+      >
+        <motion.div
+          animate={{ y: [0, -10, 0], rotate: [0, -2, 0] }}
+          transition={{ duration: 4.1, repeat: Infinity, ease: "easeInOut" }}
+          className="w-full h-full -scale-x-100"
+        >
+          <img
+            alt="3D Shopping Bag"
+            className="w-full h-full object-contain pointer-events-none select-none"
+            src={imgBag}
+          />
+        </motion.div>
+      </motion.div>
 
-      {/* 3. Tiny Pineapple Bit (Bottom-Right) - Figma image 12 (164:16640) */}
-      <div className="absolute h-[56px] left-[920px] overflow-hidden top-[860px] w-[56px] rotate-[18deg] drop-shadow-sm">
-        <img
-          alt=""
-          className="absolute inset-0 h-full w-full object-contain pointer-events-none"
-          src={imgImage9}
-        />
-      </div>
-
-      {/* 4. Center Joomi Pineapple Juice Can - Figma Can (164:16278) */}
-      <div className="absolute h-[557px] left-[566px] top-[482px] w-[308px] drop-shadow-[0_18px_36px_rgba(35,72,41,0.08)]">
-        {/* Base 3D Aluminum Can with metallic rim, bottom, and cylindrical shading */}
+      {/* 3. Center Joomi Pineapple Juice Can (z-20) */}
+      <motion.div
+        style={{
+          scale: canScale,
+          y: canY,
+        }}
+        className="absolute h-[557px] left-[566px] top-[482px] w-[308px] z-20 origin-center drop-shadow-[0_18px_36px_rgba(35,72,41,0.08)]"
+      >
         <img
           alt="Joomi Pineapple Juice 330ml Can"
           className="absolute inset-0 h-full w-full object-contain pointer-events-none select-none"
           src={imgCan3}
         />
 
-        {/* Masked Label Overlay with Multiply Blending */}
         <div
           className="absolute inset-0 overflow-hidden mix-blend-multiply"
           style={{
@@ -767,10 +838,8 @@ function Hero3Artwork() {
             maskSize: "100% 100%",
           }}
         >
-          {/* Label warm cream body fill */}
           <div className="absolute inset-0 bg-[#fff8e8]" />
 
-          {/* Top Tagline */}
           <p
             className="absolute left-1/2 top-[41px] -translate-x-1/2 font-['Archivo'] text-[11px] font-semibold text-[#234829] tracking-[0.04em] whitespace-nowrap select-none"
             style={{ fontVariationSettings: '"wdth" 100' }}
@@ -778,28 +847,23 @@ function Hero3Artwork() {
             A BRIGHT LITTLE PICK-ME-UP.
           </p>
 
-          {/* Brand "joomi" */}
           <p className="absolute left-1/2 top-[88px] -translate-x-1/2 font-['Short_Stack'] text-[72px] leading-none text-[#234829] tracking-[-0.02em] select-none">
             joomi
           </p>
 
-          {/* Flavor Name */}
           <div className="absolute left-[34px] top-[188px] font-['Cascadia_Code'] font-bold text-[19px] leading-[1.05] tracking-tight text-[#234829] select-none">
             <p className="m-0">PINEAPPLE</p>
             <p className="m-0">JUICE</p>
           </div>
 
-          {/* Floating Golden Circles (Vector SVG) */}
           <div className="absolute left-[38px] top-[146px] w-[242px] pointer-events-none select-none">
             <img alt="" className="block w-full h-auto" src={imgCircles} />
           </div>
 
-          {/* Pineapple Graphic with green crown and diamond texture (Vector SVG) */}
           <div className="absolute left-[134px] top-[162px] w-[148px] -rotate-[7.77deg] pointer-events-none select-none">
             <img alt="" className="block w-full h-auto" src={imgIllus} />
           </div>
 
-          {/* Bottom Copy */}
           <div className="absolute bottom-[54px] left-[24px] flex flex-col gap-[3px] select-none">
             <p
               className="font-['Archivo'] font-medium text-[11px] text-[#234829] tracking-[0.01em]"
@@ -815,7 +879,55 @@ function Hero3Artwork() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
+
+      {/* 4. Yellow Star (Mid-Left Foreground, z-30 with soft depth blur) */}
+      <motion.div
+        style={{
+          x: starX,
+          y: starY,
+          scale: starScale,
+          rotate: starRotate,
+          opacity: starOpacity,
+        }}
+        className="absolute left-[200px] top-[680px] w-[320px] h-[320px] z-30 origin-center pointer-events-none filter blur-[3.5px] drop-shadow-xl"
+      >
+        <motion.div
+          animate={{ y: [0, -12, 0], rotate: [0, 2, 0] }}
+          transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+          className="w-full h-full -scale-x-100"
+        >
+          <img
+            alt="3D Glowing Star"
+            className="w-full h-full object-contain pointer-events-none select-none"
+            src={imgStar}
+          />
+        </motion.div>
+      </motion.div>
+
+      {/* 5. Green Shopping Cart Badge (Bottom-Right Foreground, z-30 with camera depth blur) */}
+      <motion.div
+        style={{
+          x: cartX,
+          y: cartY,
+          scale: cartScale,
+          rotate: cartRotate,
+          opacity: cartOpacity,
+        }}
+        className="absolute left-[720px] top-[660px] w-[580px] h-[520px] z-30 origin-center pointer-events-none filter blur-[4.5px] drop-shadow-2xl"
+      >
+        <motion.div
+          animate={{ y: [0, -8, 0], rotate: [0, -1.5, 0] }}
+          transition={{ duration: 5.4, repeat: Infinity, ease: "easeInOut" }}
+          className="w-full h-full"
+        >
+          <img
+            alt="3D Shopping Cart Badge"
+            className="w-full h-full object-contain pointer-events-none select-none"
+            src={imgCart}
+          />
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
@@ -1142,14 +1254,6 @@ function FigmaAiInsights() {
       data-node-id="164:20348"
       data-name="AI insights"
     >
-      <div
-        className="-translate-x-1/2 absolute h-[1325px] left-1/2 top-0 w-[1440px] pointer-events-none"
-        data-node-id="184:25901"
-        data-name="Background"
-      >
-        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBackground} />
-      </div>
-
       <motion.div
         className="content-stretch flex flex-col gap-[55px] items-center relative shrink-0 w-full"
         data-node-id="164:21962"
@@ -1166,14 +1270,14 @@ function FigmaAiInsights() {
           title="Click to replay animation"
         >
           <div
-            className="content-stretch flex flex-col gap-[6px] items-center px-[80px] relative shrink-0 w-full"
+            className="content-stretch flex flex-col gap-[6px] items-center relative shrink-0 w-full"
             data-node-id="164:20402"
             data-name="Heading and subheading"
           >
             {/* Step 1: AI Insights and Analytics */}
-            <motion.div variants={lineVariants} className="w-full flex justify-center">
+            <motion.div variants={lineVariants} className="w-full flex justify-center py-1">
               <p
-                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-none min-w-full not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px]"
+                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] min-w-full not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px]"
                 data-node-id="164:20414"
               >
                 AI Insights and Analytics
@@ -1181,9 +1285,9 @@ function FigmaAiInsights() {
             </motion.div>
 
             {/* Step 2: that turn customer */}
-            <motion.div variants={lineVariants} className="w-full flex justify-center h-[96px]" data-node-id="164:20426">
+            <motion.div variants={lineVariants} className="w-full flex justify-center py-1" data-node-id="164:20426">
               <p
-                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-none not-italic text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
+                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] not-italic text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
                 data-node-id="164:20427"
               >
                 that turn customer
@@ -1191,9 +1295,9 @@ function FigmaAiInsights() {
             </motion.div>
 
             {/* Step 3: feedback into growth */}
-            <motion.div variants={lineVariants} className="w-full flex justify-center">
+            <motion.div variants={lineVariants} className="w-full flex justify-center py-1">
               <p
-                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-none not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
+                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
                 data-node-id="164:20443"
               >
                 feedback into growth
@@ -2797,7 +2901,7 @@ export default function ReviewsLandingPage() {
             transform: `scale(${viewportScale})`,
             transformOrigin: "top center",
           }}
-          className="pointer-events-auto backdrop-blur-xl rounded-[1000px] shadow-[0_8px_32px_rgba(1,89,83,0.12)] border border-white/40 transition-shadow hover:shadow-[0_12px_40px_rgba(1,89,83,0.18)]"
+          className="pointer-events-auto backdrop-blur-2xl bg-white/75 rounded-[1000px] shadow-[0_12px_36px_rgba(1,89,83,0.16)] border border-white/60 transition-all hover:bg-white/85 hover:shadow-[0_16px_48px_rgba(1,89,83,0.22)]"
         >
           <FigmaHeader />
         </motion.div>
@@ -2897,7 +3001,7 @@ export default function ReviewsLandingPage() {
               }}
               className="relative w-[1440px] shrink-0 pt-[16px]"
             >
-              <FigmaHero3Content />
+              <FigmaHero3Content progress={stackProgress} />
             </motion.div>
           </motion.div>
 
@@ -2933,13 +3037,21 @@ export default function ReviewsLandingPage() {
       ==================================================================== */}
       <section
         id="ai-insights"
-        className="relative w-full overflow-hidden flex justify-center bg-[#d8f8e1]"
+        className="relative w-full overflow-hidden flex justify-center bg-[#e1f4f2]"
       >
+        {/* Full-bleed background spanning entire screen width so no side mismatch */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <img
+            alt=""
+            className="w-full h-full object-cover"
+            src={imgBackground}
+          />
+        </div>
         <div
           style={{
             transform: `scale(${viewportScale})`,
             transformOrigin: "top center",
-            height: `${1325 * viewportScale}px`,
+            height: `${1380 * viewportScale}px`,
           }}
           className="relative w-[1440px] shrink-0"
         >
@@ -3267,58 +3379,30 @@ export default function ReviewsLandingPage() {
       </section>
 
       {/* ====================================================================
-          REQUIREMENT 4F: INTERACTIVE FAQ ACCORDION + FLOATING MAIL GRAPHIC
+          REQUIREMENT 4F: INTERACTIVE FAQ ACCORDION (Figma node 198:34207)
       ==================================================================== */}
       <section
         id="faq"
-        className="relative w-full overflow-hidden flex justify-center bg-[#04635d]"
+        className="relative w-full overflow-hidden flex justify-center bg-[#04635d] scroll-mt-[120px]"
       >
         <div
           style={{
             transform: `scale(${viewportScale})`,
             transformOrigin: "top center",
           }}
-          className="bg-[#04635d] content-stretch flex flex-col items-center overflow-clip py-[96px] relative shrink-0 w-[1440px]"
+          className="bg-[#04635d] content-stretch flex flex-col items-center pt-[184px] pb-[160px] relative shrink-0 w-[1440px]"
           data-node-id="198:34207"
           data-name="FAQ section"
         >
-          <div className="content-start flex flex-wrap gap-[64px] items-start max-w-[1280px] relative shrink-0 w-full">
-            {/* Left Column: SUPPORT + Frequently asked questions + Floating Yellow Envelope */}
-            <div className="flex flex-col justify-between items-start w-[576px] relative min-h-[640px]">
-              <div className="content-stretch flex flex-col gap-[32px] items-start not-italic relative shrink-0">
-                <p className="font-['Roobert:SemiBold'] leading-[1.2] relative shrink-0 text-[24px] text-[rgba(48,183,174,0.8)] tracking-[-0.48px]">
-                  SUPPORT
-                </p>
-                <p className="font-['PP_Palma:Fizzy_Heavy'] leading-none relative shrink-0 text-[72px] text-[rgba(255,255,255,0.4)] tracking-[-1.44px] w-[576px]">
-                  Frequently asked questions
-                </p>
-              </div>
-
-              {/* Floating Yellow Envelope Graphic (Figma node 151:12987) */}
-              <motion.div
-                animate={{
-                  y: [0, -14, 0],
-                  rotate: [0, -2.5, 0],
-                }}
-                transition={{
-                  duration: 5.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                whileHover={{ scale: 1.05, rotate: 3 }}
-                className="relative mt-[40px] w-[357px] h-[394px] cursor-pointer"
-              >
-                <div
-                  className="w-full h-full mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[7.144px_11.191px] mask-size-[356.775px_407.03px] relative rounded-[9px]"
-                  style={{ maskImage: `url("${imgImage4902}")` }}
-                >
-                  <img
-                    alt="Time to start reviewing envelope"
-                    className="absolute inset-0 max-w-none object-bottom pointer-events-none rounded-[9px] size-full"
-                    src={imgImage4903}
-                  />
-                </div>
-              </motion.div>
+          <div className="content-start flex flex-wrap gap-[64px] items-start max-w-[1280px] px-[80px] relative shrink-0 w-full">
+            {/* Left Column: SUPPORT + Frequently asked questions */}
+            <div className="sticky top-[140px] flex flex-col gap-[32px] items-start w-[528px] shrink-0">
+              <p className="font-['Roobert:SemiBold'] leading-[1.2] relative shrink-0 text-[24px] text-[rgba(48,183,174,0.8)] tracking-[-0.48px]">
+                SUPPORT
+              </p>
+              <p className="font-['PP_Palma:Fizzy_Heavy'] leading-none relative shrink-0 text-[72px] text-[rgba(255,255,255,0.4)] tracking-[-1.44px] w-[528px]">
+                Frequently asked questions
+              </p>
             </div>
 
             {/* Right Column: Interactive Accordion for all 7 FAQ items */}
