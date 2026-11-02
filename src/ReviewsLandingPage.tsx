@@ -244,7 +244,6 @@ export default function ReviewsLandingPage() {
   });
 
   // Compute responsive scale so sticky 100vh sections always fit the screen height & width
-  const heroContentScale = viewportScale;
   const howContentScale = Math.min(
     viewportScale,
     Math.max(0.72, (viewportHeight - 40) / 840)
@@ -363,7 +362,7 @@ export default function ReviewsLandingPage() {
             <motion.div
               style={{
                 y: hero2InnerY,
-                scale: heroContentScale,
+                scale: hero1ContentScale,
                 transformOrigin: "top center",
               }}
               className="relative w-[1440px] shrink-0 pt-[28px]"

@@ -937,7 +937,7 @@ export function FigmaAiInsights() {
               className="w-full flex justify-center"
             >
               <p
-                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-none min-w-full not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px]"
+                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] min-w-full not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px]"
                 data-node-id="164:20414"
               >
                 AI Insights and Analytics
@@ -952,11 +952,11 @@ export function FigmaAiInsights() {
                 opacity: { duration: 10, times: [0, 0.23, 0.33, 1], ease: ["linear", [0.5, 0, 0.5, 1], "linear"], repeat: Infinity },
                 y: { duration: 10, times: [0, 0.15, 0.25, 1], ease: ["linear", [0.05, 0.4, 0.5, 1], "linear"], repeat: Infinity },
               }}
-              className="w-full flex justify-center h-[96px]"
+              className="w-full flex justify-center h-[115.2px]"
               data-node-id="164:20426"
             >
               <p
-                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-none not-italic text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
+                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] not-italic text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
                 data-node-id="164:20427"
               >
                 that turn customer
@@ -974,7 +974,7 @@ export function FigmaAiInsights() {
               className="w-full flex justify-center"
             >
               <p
-                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-none not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
+                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
                 data-node-id="164:20443"
               >
                 feedback into growth
