@@ -72,13 +72,12 @@ export default function ReviewsLandingPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [navHidden, setNavHidden] = useState(false);
 
-  // Nav hides when scrolling down, returns when scrolling up, at the top, or when the mouse reaches the top edge
+  // Nav hides when scrolling down; it returns at the top of the page or when the mouse reaches the top edge
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (latest) => {
     const prev = scrollY.getPrevious() ?? 0;
     if (latest < 80) setNavHidden(false);
     else if (latest > prev) setNavHidden(true);
-    else if (latest < prev) setNavHidden(false);
   });
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -271,10 +270,13 @@ export default function ReviewsLandingPage() {
     viewportScale,
     Math.max(0.72, (viewportHeight - 40) / 840)
   );
-  // Hero 1 and 2 keep their Figma size (only width-scaled), so the card image is never shrunk by viewport height.
+  // Hero 1 and 2 are fitted to the space below the fixed nav (width- and height-aware) so the sub-copy is never cut off.
   // The frame's own 80px top padding tucks ~40px under the nav's bottom edge, so the heading never gets covered.
   const heroNavBottom = Math.round(96 * viewportScale);
-  const hero1ContentScale = viewportScale;
+  const hero1ContentScale = Math.min(
+    viewportScale,
+    Math.max(0.25, (viewportHeight - heroNavBottom - 12) / 977)
+  );
   // Hero 3 is a 1440 × 1262 Figma frame. Fit the complete composition into
   // the sticky viewport without changing its internal geometry.
   const hero3ContentScale = Math.min(
@@ -859,7 +861,7 @@ export default function ReviewsLandingPage() {
           data-node-id="198:34207"
           data-name="FAQ section"
         >
-          <div className="content-start flex flex-wrap gap-[64px] items-start max-w-[1280px] px-[80px] relative shrink-0 w-full">
+          <div className="content-start flex flex-wrap gap-[64px] items-start max-w-[1280px] relative shrink-0 w-full">
             {/* Left Column: SUPPORT + Frequently asked questions */}
             <div
               data-section="faq-left"

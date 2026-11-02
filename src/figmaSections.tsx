@@ -870,7 +870,7 @@ export function FigmaSlide2() {
 export function FigmaSlide3() {
   return (
     <div
-      className="relative size-full overflow-hidden p-6 lg:p-10 flex flex-col justify-between"
+      className="relative size-full overflow-hidden p-6 lg:p-10 flex flex-col justify-between gap-[clamp(8px,2vh,24px)]"
       data-node-id="184:26284"
       style={{
         backgroundImage:
@@ -879,7 +879,7 @@ export function FigmaSlide3() {
       data-name="slide 3"
     >
       <div
-        className="content-stretch flex flex-[1_0_0] flex-col items-start min-h-px relative w-full"
+        className="content-stretch flex flex-col items-start shrink-0 relative w-full"
         data-node-id="184:26285"
       >
         <div
@@ -893,7 +893,7 @@ export function FigmaSlide3() {
             Survey Insights
           </p>
           <p
-            className="font-['PP_Palma:Fizzy_Heavy'] relative shrink-0 text-[56px] lg:text-[72px] text-white tracking-[-2.88px] w-full"
+            className="font-['PP_Palma:Fizzy_Heavy'] relative shrink-0 text-[clamp(44px,8.5vh,72px)] text-white tracking-[-2.88px] w-full"
             data-node-id="184:26288"
           >
             82.6 %
@@ -907,7 +907,7 @@ export function FigmaSlide3() {
         </div>
       </div>
       <div
-        className="-translate-y-1/2 absolute content-stretch flex flex-col gap-[14px] lg:gap-[16px] items-start left-0 top-1/2 w-full max-w-[644px] px-6 lg:px-10"
+        className="content-stretch flex flex-col gap-[clamp(8px,1.6vh,16px)] items-start justify-center flex-1 min-h-0 relative w-full max-w-[644px]"
         data-node-id="184:26313"
       >
         <div
@@ -915,17 +915,17 @@ export function FigmaSlide3() {
           data-node-id="184:26314"
         >
           <div
-            className="bg-[#cbefee] flex-[1_0_0] h-[52px] lg:h-[56px] min-w-px relative rounded-br-[1000px] rounded-tr-[1000px]"
+            className="bg-[#cbefee] flex-[1_0_0] h-[clamp(32px,6.2vh,56px)] min-w-px relative rounded-br-[1000px] rounded-tr-[1000px]"
             data-node-id="184:26315"
           />
           <p
-            className="[word-break:break-word] font-['Inter:Medium'] font-medium leading-[normal] not-italic relative shrink-0 text-[32px] lg:text-[36px] text-white whitespace-nowrap"
+            className="[word-break:break-word] font-['Inter:Medium'] font-medium leading-[normal] not-italic relative shrink-0 text-[clamp(22px,4vh,36px)] text-white whitespace-nowrap"
             data-node-id="184:26316"
           >
             🥰
           </p>
           <p
-            className="[word-break:break-word] absolute font-['Roobert:Medium'] leading-[1.2] not-italic right-[188px] text-[16px] lg:text-[18px] text-[rgba(0,91,85,0.8)] top-[16px] tracking-[-0.36px] translate-x-full whitespace-nowrap"
+            className="[word-break:break-word] absolute font-['Roobert:Medium'] leading-[1.2] not-italic right-[188px] text-[16px] lg:text-[18px] text-[rgba(0,91,85,0.8)] top-1/2 -translate-y-1/2 tracking-[-0.36px] translate-x-full whitespace-nowrap"
             data-node-id="184:26317"
           >
             120 responses
@@ -936,11 +936,11 @@ export function FigmaSlide3() {
           data-node-id="184:26318"
         >
           <div
-            className="bg-[#a4e2a7] flex-[1_0_0] h-[52px] lg:h-[56px] min-w-px relative rounded-br-[1000px] rounded-tr-[1000px]"
+            className="bg-[#a4e2a7] flex-[1_0_0] h-[clamp(32px,6.2vh,56px)] min-w-px relative rounded-br-[1000px] rounded-tr-[1000px]"
             data-node-id="184:26319"
           />
           <p
-            className="[word-break:break-word] font-['Inter:Medium'] font-medium leading-[normal] not-italic relative shrink-0 text-[32px] lg:text-[36px] text-white whitespace-nowrap"
+            className="[word-break:break-word] font-['Inter:Medium'] font-medium leading-[normal] not-italic relative shrink-0 text-[clamp(22px,4vh,36px)] text-white whitespace-nowrap"
             data-node-id="184:26320"
           >
             😊
@@ -951,11 +951,11 @@ export function FigmaSlide3() {
           data-node-id="184:26321"
         >
           <div
-            className="bg-[#ffe7e7] flex-[1_0_0] h-[52px] lg:h-[56px] min-w-px relative rounded-br-[1000px] rounded-tr-[1000px]"
+            className="bg-[#ffe7e7] flex-[1_0_0] h-[clamp(32px,6.2vh,56px)] min-w-px relative rounded-br-[1000px] rounded-tr-[1000px]"
             data-node-id="184:26322"
           />
           <p
-            className="[word-break:break-word] font-['Inter:Medium'] font-medium leading-[normal] not-italic relative shrink-0 text-[32px] lg:text-[36px] text-white whitespace-nowrap"
+            className="[word-break:break-word] font-['Inter:Medium'] font-medium leading-[normal] not-italic relative shrink-0 text-[clamp(22px,4vh,36px)] text-white whitespace-nowrap"
             data-node-id="184:26323"
           >
             🙂
@@ -966,11 +966,11 @@ export function FigmaSlide3() {
           data-node-id="184:26324"
         >
           <div
-            className="bg-[#fdf6bb] flex-[1_0_0] h-[52px] lg:h-[56px] min-w-px relative rounded-br-[1000px] rounded-tr-[1000px]"
+            className="bg-[#fdf6bb] flex-[1_0_0] h-[clamp(32px,6.2vh,56px)] min-w-px relative rounded-br-[1000px] rounded-tr-[1000px]"
             data-node-id="184:26325"
           />
           <p
-            className="[word-break:break-word] font-['Inter:Medium'] font-medium leading-[normal] not-italic relative shrink-0 text-[32px] lg:text-[36px] text-white whitespace-nowrap"
+            className="[word-break:break-word] font-['Inter:Medium'] font-medium leading-[normal] not-italic relative shrink-0 text-[clamp(22px,4vh,36px)] text-white whitespace-nowrap"
             data-node-id="184:26326"
           >
             🤨
@@ -981,11 +981,11 @@ export function FigmaSlide3() {
           data-node-id="184:26327"
         >
           <div
-            className="bg-[rgba(255,255,255,0.3)] flex-[1_0_0] h-[52px] lg:h-[56px] min-w-px relative rounded-br-[1000px] rounded-tr-[1000px]"
+            className="bg-[rgba(255,255,255,0.3)] flex-[1_0_0] h-[clamp(32px,6.2vh,56px)] min-w-px relative rounded-br-[1000px] rounded-tr-[1000px]"
             data-node-id="184:26328"
           />
           <p
-            className="[word-break:break-word] font-['Inter:Medium'] font-medium leading-[normal] not-italic relative shrink-0 text-[32px] lg:text-[36px] text-white whitespace-nowrap"
+            className="[word-break:break-word] font-['Inter:Medium'] font-medium leading-[normal] not-italic relative shrink-0 text-[clamp(22px,4vh,36px)] text-white whitespace-nowrap"
             data-node-id="184:26329"
           >
             😥
@@ -993,7 +993,7 @@ export function FigmaSlide3() {
         </div>
       </div>
       <div
-        className="[word-break:break-word] bg-[rgba(255,255,255,0.5)] backdrop-blur-xl border border-white/30 shadow-md content-stretch flex flex-col gap-[14px] lg:gap-[16px] items-center not-italic px-[28px] lg:px-[32px] py-[16px] lg:py-[20px] relative rounded-[22px] shrink-0 w-full mx-auto z-10"
+        className="[word-break:break-word] bg-[rgba(255,255,255,0.5)] backdrop-blur-xl border border-white/30 shadow-md content-stretch flex flex-col gap-[clamp(8px,1.6vh,16px)] items-center not-italic px-[28px] lg:px-[32px] py-[clamp(12px,2vh,20px)] relative rounded-[22px] shrink-0 w-full mx-auto z-10"
         style={{
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
@@ -1001,13 +1001,13 @@ export function FigmaSlide3() {
         data-node-id="184:26307"
       >
         <p
-          className="font-['Roobert:SemiBold'] leading-[normal] relative shrink-0 text-[28px] lg:text-[36px] text-white tracking-[-1.44px] w-full"
+          className="font-['Roobert:SemiBold'] leading-[normal] relative shrink-0 text-[clamp(22px,3.6vh,36px)] text-white tracking-[-1.44px] w-full"
           data-node-id="184:26308"
         >
           Optimize experience
         </p>
         <p
-          className="font-['Roobert:Regular'] leading-[1.2] relative shrink-0 text-[18px] lg:text-[24px] text-[rgba(255,255,255,0.85)] tracking-[-0.48px] w-full"
+          className="font-['Roobert:Regular'] leading-[1.2] relative shrink-0 text-[clamp(15px,2.4vh,24px)] text-[rgba(255,255,255,0.85)] tracking-[-0.48px] w-full"
           data-node-id="184:26309"
         >
           Gain insights, understand your customers better and enhance their shopping experience
