@@ -496,9 +496,9 @@ interface Hero3Props {
 
 export function FigmaHero3Content({ progress }: Hero3Props) {
   return (
-    <div className="bg-[#fefcdf] h-[1262px] mx-auto overflow-clip relative shrink-0 w-[1440px]" data-node-id="164:14229" data-name="hero 3">
+    <div className="bg-[#fefcdf] h-[1262px] mx-auto overflow-clip relative shrink-0 w-[1440px] bottom-[40px]" data-node-id="164:14229" data-name="hero 3">
       <Hero3Artwork progress={progress} />
-      <div className="absolute content-stretch flex flex-col items-center left-[112px] right-[112px] top-[181px] z-10 pointer-events-none" data-node-id="164:14232" data-name="Content">
+      <div className="absolute content-stretch flex flex-col items-center left-[112px] right-[112px] top-[180px] z-10 pointer-events-none" data-node-id="164:14232" data-name="Content">
         <p className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] h-[140px] leading-none not-italic relative shrink-0 text-[140px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-2.8px] w-[1200px]" data-node-id="164:14233">
           Sell more.
         </p>
@@ -577,7 +577,7 @@ function Hero3Artwork({ progress }: Hero3Props) {
           rotate: boxRotate,
           opacity: boxOpacity,
         }}
-        className="absolute left-[420px] top-[380px] w-[140px] h-[130px] z-10 origin-center pointer-events-none drop-shadow-md"
+        className="absolute left-[420px] top-[380px] w-[170px] h-[160px] z-10 origin-center pointer-events-none drop-shadow-md"
       >
         <motion.div
           animate={{ y: [0, -7, 0], rotate: [0, 1.5, 0] }}
@@ -1054,7 +1054,7 @@ export function FigmaAiInsights() {
               className="w-full flex justify-center py-1"
             >
               <p
-                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] min-w-full not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px]"
+                className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] min-w-full not-italic relative shrink-0 text-[90px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px]"
                 data-node-id="164:20414"
               >
                 AI Insights and Analytics

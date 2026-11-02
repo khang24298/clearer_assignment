@@ -293,7 +293,7 @@ export default function ReviewsLandingPage() {
   // the sticky viewport without changing its internal geometry.
   const hero3ContentScale = Math.min(
     viewportScale,
-    Math.max(0.55, (viewportHeight - 20) / 1262)
+    Math.max(0.25, (viewportHeight - 20) / 1262)
   );
   const hero1Top = Math.round(heroNavBottom - 40 * hero1ContentScale);
   const feedbackContentScale = Math.min(
