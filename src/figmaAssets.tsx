@@ -408,7 +408,7 @@ export function PageScreensComponents({ className, property1 = "Default" }: Page
         </div>
       </div>
       <div className="absolute flex inset-[33.9%_24.89%_66%_75.06%] items-center justify-center" data-node-id="164:16415" style={{ containerType: "size" }}>
-        <div className="-scale-x-100 flex-none h-[hypot(-16.8315cqw,86.2912cqh)] rotate-[10.17deg] w-[hypot(-83.1685cqw,-13.7088cqh)]">
+        <div className="-scale-x-100 flex-none h-[hypot(-16.8315cqw,86.2912cqh)] rotate-[7.17deg] w-[hypot(-83.1685cqw,-13.7088cqh)]">
           <div className="mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-1441.076px_-418.319px] mask-size-[1967.828px_1196.327px] relative size-full" style={{ maskImage: `url("${imgOrangeBg}")` }} data-name="bag">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <img alt="" className="absolute h-[119.95%] left-[-25.25%] max-w-none top-[-12.93%] w-[153.28%]" src={imgBag} />
@@ -426,7 +426,7 @@ export function PageScreensComponents({ className, property1 = "Default" }: Page
       </div>
       <div className="absolute flex inset-[54.64%_48.33%_45.25%_51.6%] items-center justify-center" data-node-id="164:16417" style={{ containerType: "size" }}>
         <div className="-scale-x-100 flex-none h-[hypot(-24.9069cqw,75.0931cqh)] rotate-[18.35deg] w-[hypot(-75.0931cqw,-24.9069cqh)]">
-          <div className="blur-[10px] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-990.778px_-642.275px] mask-size-[1967.828px_1196.327px] relative size-full" style={{ maskImage: `url("${imgOrangeBg}")` }} data-name="star">
+          <div className="blur-[12px] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-990.778px_-642.275px] mask-size-[1967.828px_1196.327px] relative size-full" style={{ maskImage: `url("${imgOrangeBg}")` }} data-name="star">
             <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgStar} />
           </div>
         </div>

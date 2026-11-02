@@ -601,7 +601,7 @@ function Hero3Artwork({ progress }: Hero3Props) {
           rotate: bagRotate,
           opacity: bagOpacity,
         }}
-        className="absolute left-[880px] top-[430px] w-[220px] h-[220px] z-10 origin-center pointer-events-none drop-shadow-md"
+        className="absolute left-[830px] top-[430px] w-[380px] h-[380px] z-10 origin-center pointer-events-none drop-shadow-md"
       >
         <motion.div
           animate={{ y: [0, -10, 0], rotate: [0, -2, 0] }}
@@ -728,7 +728,7 @@ function Hero3Artwork({ progress }: Hero3Props) {
           rotate: cartRotate,
           opacity: cartOpacity,
         }}
-        className="absolute left-[720px] top-[660px] w-[580px] h-[520px] z-30 origin-center pointer-events-none filter blur-[4.5px] drop-shadow-2xl"
+        className="absolute left-[720px] top-[660px] w-[580px] h-[520px] z-30 origin-center pointer-events-none filter blur-[14px] drop-shadow-2xl"
       >
         <motion.div
           animate={{ y: [0, -8, 0], rotate: [0, -1.5, 0] }}
