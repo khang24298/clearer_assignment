@@ -245,10 +245,7 @@ export default function ReviewsLandingPage() {
   });
 
   // Compute responsive scale so sticky 100vh sections always fit the screen height & width
-  const heroContentScale = Math.min(
-    viewportScale,
-    Math.max(0.68, (viewportHeight - 20) / 1080)
-  );
+  const heroContentScale = viewportScale;
   const howContentScale = Math.min(
     viewportScale,
     Math.max(0.72, (viewportHeight - 40) / 840)
@@ -361,6 +358,7 @@ export default function ReviewsLandingPage() {
               className="absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: `url("${Assets.imgBg}"), linear-gradient(180deg, #c2f4da 0%, #e8ffc8 50%, #fefcdf 100%)`,
+                backgroundImage: `url("${Assets.imgBg}"), linear-gradient(180deg, #dcf3ee 0%, #fefdf0 100%)`,
               }}
             />
             <motion.div
@@ -483,7 +481,7 @@ export default function ReviewsLandingPage() {
               data-section="how-slide-1"
               style={{ x: slide1X }}
               onClick={() => scrollToHowSlide(0)}
-              className="absolute inset-0 z-10 size-full rounded-l-[32px] overflow-hidden shadow-[-16px_0_40px_rgba(0,0,0,0.1)] cursor-pointer"
+              className="absolute inset-0 z-10 size-full overflow-hidden shadow-[-16px_0_40px_rgba(0,0,0,0.1)] cursor-pointer"
             >
               <FigmaSlide1 />
             </motion.div>
@@ -494,7 +492,7 @@ export default function ReviewsLandingPage() {
               data-section="how-slide-2"
               style={{ x: slide2X }}
               onClick={() => scrollToHowSlide(1)}
-              className="absolute inset-0 z-20 size-full rounded-l-[32px] overflow-hidden shadow-[-24px_0_50px_rgba(0,0,0,0.22)] cursor-pointer"
+              className="absolute inset-0 z-20 size-full overflow-hidden shadow-[-24px_0_50px_rgba(0,0,0,0.22)] cursor-pointer"
             >
               <FigmaSlide2 />
             </motion.div>
@@ -505,7 +503,7 @@ export default function ReviewsLandingPage() {
               data-section="how-slide-3"
               style={{ x: slide3X }}
               onClick={() => scrollToHowSlide(2)}
-              className="absolute inset-0 z-30 size-full rounded-l-[32px] overflow-hidden shadow-[-28px_0_60px_rgba(0,40,37,0.35)] cursor-pointer"
+              className="absolute inset-0 z-30 size-full overflow-hidden shadow-[-28px_0_60px_rgba(0,40,37,0.35)] cursor-pointer"
             >
               <FigmaSlide3 />
             </motion.div>

@@ -43,7 +43,7 @@ const imgImage4901 = "/assets/ad5ac742b2e7e39b8f7c186482d72d73561f1cc4.png";
 const imgImage4904 = "/assets/808cf4a87ce2d856a11af393004688f1a9052950.png";
 const imgImage4905 = "/assets/848a7726020e45f570d9dcaab538d92de5e50c24.png";
 const imgImage4906 = "/assets/bbcec2b62a17c474b73be71f17cd33dc30bdc113.png";
-const imgScreenshot20261031At1644442 = "/assets/5a01cb485bd6f691265acfae1c2b261a84a0d8a6.png";
+const imgScreenshot20261031At1644442 = "/assets/foundai.png";
 const img68403C9D0B29131142C48726Fa95A7Df58Fe8815Fa5D1Bbfbc61392BGraphicGoogleSellerRatingMedia1 = "/assets/ca9c4cfc973899267b6c4345a0fc599a66e8f630.png";
 const img522791B9620D452583896Af5F600187B1 = "/assets/bafd84c69c7aed20ac5beed8bde855b820100fc1.png";
 const imgScreenshot20261031At1815591 = "/assets/b6ad59c119faa405bcec6af9cd62d5e808d6bdf5.png";
@@ -667,10 +667,10 @@ function FigmaHero1Content() {
 function FigmaHero2Content() {
   return (
     <div className="h-[1315px] overflow-clip relative shrink-0 w-full" data-node-id="164:14153" data-name="hero 2">
-      <div className="absolute content-stretch flex flex-col items-center justify-center left-[125.5px] p-[8px] top-[80px]" data-node-id="164:17768">
+      <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center justify-center left-1/2 p-[8px] top-[80px]" data-node-id="164:17768">
         <p className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-none not-italic relative shrink-0 text-[140px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-2.8px] whitespace-nowrap" data-node-id="164:14168">{`Get found by AI. `}</p>
       </div>
-      <div className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.5)] content-stretch flex items-center left-[calc(50%-11.61px)] p-[16px] rounded-[36.788px] top-[392.35px] w-[1522.96px]" data-node-id="164:18273">
+      <div className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.5)] content-stretch flex items-center left-1/2 p-[16px] rounded-[36.788px] top-[392.35px] w-[1522.96px]" data-node-id="164:18273">
         <div className="flex-[1_0_0] grid-rows-[max-content] inline-grid leading-[0] min-w-px place-items-start relative" data-node-id="164:14225" data-name="img">
           <div className="aspect-[2310/1444] col-1 mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-size-[1490.96px_957.995px] ml-0 mt-0 relative rounded-[25.703px] row-1 w-[100.86%]" data-node-id="164:18266" style={{ maskImage: `url("${imgScreenshot20261031At1644441}")` }} data-name="Screenshot 2026-10-31 at 16.44.44 1">
             <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[25.703px] size-full" src={imgScreenshot20261031At1644442} />
@@ -2773,10 +2773,7 @@ export default function ReviewsLandingPage() {
   });
 
   // Compute responsive scale so sticky 100vh sections always fit the screen height & width
-  const heroContentScale = Math.min(
-    viewportScale,
-    Math.max(0.68, (viewportHeight - 20) / 1080)
-  );
+  const heroContentScale = viewportScale;
   const howContentScale = Math.min(
     viewportScale,
     Math.max(0.72, (viewportHeight - 40) / 840)
@@ -2863,7 +2860,7 @@ export default function ReviewsLandingPage() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url("${imgBg}"), linear-gradient(180deg, #c2f4da 0%, #e8ffc8 50%, #fefcdf 100%)`,
+                backgroundImage: `url("${imgBg}"), linear-gradient(180deg, #dcf3ee 0%, #fefdf0 100%)`,
               }}
             />
             <motion.div
@@ -2916,8 +2913,8 @@ export default function ReviewsLandingPage() {
                 onClick={() => scrollToHeroSlide(item.idx)}
                 title={item.label}
                 className={`group relative flex items-center justify-center rounded-full transition-all duration-300 cursor-pointer ${activeHero === item.idx
-                    ? "w-3.5 h-10 bg-[#057c74]"
-                    : "w-3.5 h-3.5 bg-[#057c74]/25 hover:bg-[#057c74]/50"
+                  ? "w-3.5 h-10 bg-[#057c74]"
+                  : "w-3.5 h-3.5 bg-[#057c74]/25 hover:bg-[#057c74]/50"
                   }`}
               >
                 <span className="pointer-events-none absolute right-full mr-3 px-2.5 py-1 rounded-lg bg-[#015953] text-white text-xs font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow">

@@ -27,7 +27,7 @@ export const imgImage4901 = "/assets/ad5ac742b2e7e39b8f7c186482d72d73561f1cc4.pn
 export const imgImage4904 = "/assets/808cf4a87ce2d856a11af393004688f1a9052950.png";
 export const imgImage4905 = "/assets/848a7726020e45f570d9dcaab538d92de5e50c24.png";
 export const imgImage4906 = "/assets/bbcec2b62a17c474b73be71f17cd33dc30bdc113.png";
-export const imgScreenshot20261031At1644442 = "/assets/5a01cb485bd6f691265acfae1c2b261a84a0d8a6.png";
+export const imgScreenshot20261031At1644442 = "/assets/foundai.png";
 export const img68403C9D0B29131142C48726Fa95A7Df58Fe8815Fa5D1Bbfbc61392BGraphicGoogleSellerRatingMedia1 = "/assets/ca9c4cfc973899267b6c4345a0fc599a66e8f630.png";
 export const img522791B9620D452583896Af5F600187B1 = "/assets/bafd84c69c7aed20ac5beed8bde855b820100fc1.png";
 export const imgScreenshot20261031At1815591 = "/assets/b6ad59c119faa405bcec6af9cd62d5e808d6bdf5.png";
@@ -156,6 +156,7 @@ export const imgSocialIcon2 = "/assets/1caa7508f354d164e8aaae7f2d890151bad8f6c6.
 export const imgSocialIcon3 = "/assets/4ae2b87c58005d4ea1dff2034636330d70b26cf7.svg";
 export const imgSocialIcon4 = "/assets/366ea60b25bbb8db92650563177dc4f22b29c21b.svg";
 export const imgImage4902 = "/assets/76a8ad5d8df843b6e304337ce1dd18ec3ff0b31b.svg";
+export const imgCustomerStories = "/assets/customer_stories.png"
 
 export function Logo({ className }: { className?: string }) {
   return (

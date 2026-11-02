@@ -159,14 +159,15 @@ const {
   imgSocialIcon2,
   imgSocialIcon3,
   imgSocialIcon4,
-  imgImage4902
+  imgImage4902,
+  imgCustomerStories
 } = Assets;
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function FigmaHeader() {
   return (
-    <div className="bg-[rgba(255,255,255,0.2)] content-stretch flex flex-col items-center justify-center overflow-clip px-[32px] py-[16px] relative rounded-[1000px] shrink-0" data-node-id="164:13642" data-name="header">
+    <div className="bg-[rgba(255,255,255,0.2)] content-stretch flex flex-col items-center justify-center overflow-clip px-[16px] py-[16px] relative rounded-[1000px] shrink-0" data-node-id="164:13642" data-name="header">
       <div className="content-stretch flex gap-[32px] items-center relative shrink-0 w-[1216px]" data-node-id="164:13643">
         <div className="content-stretch flex flex-[1_0_0] gap-[32px] items-center min-w-px relative" data-node-id="164:13644">
           <div className="h-[32px] overflow-clip relative shrink-0 w-[199.669px]" data-node-id="164:13645" data-name="logo">
@@ -230,7 +231,7 @@ export function FigmaHeader() {
             <div className="absolute flex h-[19.308px] items-center justify-center left-[441.34px] top-[-5.65px] w-[29.321px]" data-node-id="164:13839">
               <div className="flex-none rotate-12">
                 <div className="bg-[#fc0000] content-stretch flex items-center justify-center overflow-clip px-[4px] py-[2px] relative rounded-[1000px]">
-                  <p className="[word-break:break-word] font-['Roobert:Medium'] leading-[1.2] not-italic relative shrink-0 text-[8px] text-black whitespace-nowrap" data-node-id="164:13840">
+                  <p className="[word-break:break-word] font-['Roobert:Medium'] leading-[1.2] not-italic relative shrink-0 text-[8px] text-white whitespace-nowrap" data-node-id="164:13840">
                     NEW
                   </p>
                 </div>
@@ -453,10 +454,10 @@ function TypewriterSearchQuery({
 export function FigmaHero2Content() {
   return (
     <div className="h-[1315px] overflow-clip relative shrink-0 w-full" data-node-id="164:14153" data-name="hero 2">
-      <div className="absolute content-stretch flex flex-col items-center justify-center left-[125.5px] p-[8px] top-[80px]" data-node-id="164:17768">
+      <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center justify-center left-1/2 p-[8px] top-[80px]" data-node-id="164:17768">
         <p className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-none not-italic relative shrink-0 text-[140px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-2.8px] whitespace-nowrap" data-node-id="164:14168">{`Get found by AI. `}</p>
       </div>
-      <div className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.5)] content-stretch flex items-center left-[calc(50%-11.61px)] p-[16px] rounded-[36.788px] top-[392.35px] w-[1522.96px]" data-node-id="164:18273">
+      <div className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.5)] content-stretch flex items-center left-1/2 p-[16px] rounded-[36.788px] top-[392.35px] w-[1522.96px]" data-node-id="164:18273">
         <div className="flex-[1_0_0] grid-rows-[max-content] inline-grid leading-[0] min-w-px place-items-start relative" data-node-id="164:14225" data-name="img">
           <div className="aspect-[2310/1444] col-1 mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-size-[1490.96px_957.995px] ml-0 mt-0 relative rounded-[25.703px] row-1 w-[100.86%]" data-node-id="164:18266" style={{ maskImage: `url("${imgScreenshot20261031At1644441}")` }} data-name="Screenshot 2026-10-31 at 16.44.44 1">
             <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[25.703px] size-full" src={imgScreenshot20261031At1644442} />
@@ -674,7 +675,7 @@ export function FigmaSlide1() {
         src={img522791B9620D452583896Af5F600187B1}
       />
       <div
-        className="absolute bottom-6 lg:bottom-10 left-6 lg:left-10 right-6 lg:right-10 bg-[rgba(0,0,0,0.32)] backdrop-blur-2xl border border-white/20 shadow-2xl flex flex-col gap-3 lg:gap-4 p-6 lg:p-7 rounded-[24px] z-10 max-w-[560px] mx-auto text-white"
+        className="absolute bottom-6 lg:bottom-10 left-6 lg:left-10 right-6 lg:right-10 bg-[rgba(0,0,0,0.32)] backdrop-blur-2xl border border-white/20 shadow-2xl flex flex-col gap-3 lg:gap-4 p-6 lg:p-7 rounded-[24px] z-10 mx-auto text-white"
         style={{
           backdropFilter: "blur(24px)",
           WebkitBackdropFilter: "blur(24px)",
@@ -717,7 +718,7 @@ export function FigmaSlide2() {
         />
       </div>
       <div
-        className="relative w-full max-w-[560px] mx-auto bg-white/50 backdrop-blur-2xl border border-white/60 shadow-[0_12px_36px_rgba(0,0,0,0.08)] flex flex-col gap-3 lg:gap-4 p-6 lg:p-7 rounded-[24px] z-10 text-[#1b2230]"
+        className="relative w-full mx-auto bg-white/50 backdrop-blur-2xl border border-white/60 shadow-[0_12px_36px_rgba(0,0,0,0.08)] flex flex-col gap-3 lg:gap-4 p-6 lg:p-7 rounded-[24px] z-10 text-[#1b2230]"
         style={{
           backdropFilter: "blur(24px)",
           WebkitBackdropFilter: "blur(24px)",
@@ -867,7 +868,7 @@ export function FigmaSlide3() {
         </div>
       </div>
       <div
-        className="[word-break:break-word] bg-[rgba(255,255,255,0.5)] backdrop-blur-xl border border-white/30 shadow-md content-stretch flex flex-col gap-[14px] lg:gap-[16px] items-center not-italic px-[28px] lg:px-[32px] py-[16px] lg:py-[20px] relative rounded-[22px] shrink-0 w-full max-w-[560px] mx-auto z-10"
+        className="[word-break:break-word] bg-[rgba(255,255,255,0.5)] backdrop-blur-xl border border-white/30 shadow-md content-stretch flex flex-col gap-[14px] lg:gap-[16px] items-center not-italic px-[28px] lg:px-[32px] py-[16px] lg:py-[20px] relative rounded-[22px] shrink-0 w-full mx-auto z-10"
         style={{
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
@@ -1030,269 +1031,12 @@ export function FigmaCustomerStories() {
           </p>
         </div>
       </div>
-      <div className="absolute contents left-[316px] top-[190.94px]" data-node-id="164:20218" data-name="main">
-        <div className="absolute flex h-[395.091px] items-center justify-center left-[949.77px] top-[398.3px] w-[410px]" data-node-id="164:20255">
-          <div className="-scale-y-100 flex-none rotate-180">
-            <div className="drop-shadow-[0px_9.965px_14.948px_rgba(0,0,0,0.2)] h-[395.091px] relative w-[410px]">
-              <div className="absolute contents left-0 top-0" data-node-id="164:20256" data-name="image">
-                <div className="absolute flex h-[387.857px] items-center justify-center left-0 top-[-1.74px] w-[503.333px]" data-node-id="164:20258">
-                  <div className="-scale-y-100 flex-none rotate-180">
-                    <div className="h-[387.857px] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[93.333px_4.038px] mask-size-[410px_390.685px] relative w-[503.333px]" style={{ maskImage: `url("${imgScreen2}")` }} data-name="screen 2">
-                      <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgScreen3} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute contents left-0 top-0" data-node-id="164:20259" data-name="gradient">
-                <div className="absolute flex h-[457.693px] items-center justify-center left-[-12.73px] top-[-17.99px] w-[422.734px]" data-node-id="164:20261">
-                  <div className="flex-none rotate-4 skew-x-4">
-                    <div className="bg-gradient-to-b from-[58.655%] from-[rgba(0,0,0,0)] h-[428.132px] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[0px_20.288px] mask-size-[410px_390.685px] relative to-[91.614%] to-[rgba(0,0,0,0.8)] w-[423.766px]" style={{ maskImage: `url("${imgScreen2}")` }} data-name="Supplied brand photography" />
-                  </div>
-                </div>
-              </div>
-              <div className="absolute bottom-[28.49px] flex items-center justify-center left-[26.51px] right-[29.49px]" data-node-id="164:20262" style={{ containerType: "size" }}>
-                <div className="-scale-x-100 flex-none h-[hypot(0.220491cqw,76.3182cqh)] rotate-[-1.5deg] w-[hypot(-99.7795cqw,23.6818cqh)]">
-                  <div className="content-stretch flex items-center justify-between overflow-clip relative w-full" data-name="Read story">
-                    <div className="content-stretch flex h-[29.818px] items-center justify-center relative rounded-[19.236px] shrink-0" data-node-id="164:20263" data-name="button">
-                      <p className="[word-break:break-word] font-['Roobert:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[11.93px] text-white whitespace-nowrap" data-node-id="I164:20263;128:8627">
-                        Read story
-                      </p>
-                    </div>
-                    <div className="bg-[rgba(255,255,255,0.3)] content-stretch flex items-center justify-center overflow-clip relative rounded-[19.382px] shrink-0 size-[28.327px]" data-node-id="164:20264" data-name="Story action">
-                      <div className="relative shrink-0 size-[14.164px]" data-node-id="164:20265" data-name="arrow-up-right">
-                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowUpRight} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute contents left-[171.52px] top-[150.78px]" data-node-id="164:20306" data-name="Card">
-                <div className="absolute flex h-[178.304px] items-center justify-center left-[171.52px] top-[150.78px] w-[208.899px]" data-node-id="164:20305">
-                  <div className="-scale-y-100 -skew-x-4 flex-none rotate-176">
-                    <div className="h-[163.696px] relative w-[209.409px]">
-                      <div className="absolute inset-[0.38%_0_1.48%_0]">
-                        <img alt="" className="block max-w-none size-full" src={imgRectangle240648328} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="-translate-x-1/2 -translate-y-1/2 absolute flex h-[133.647px] items-center justify-center left-[calc(50%+68.46px)] top-[calc(50%+39.85px)] w-[177.211px]" data-node-id="164:20269">
-                  <div className="-scale-y-100 -skew-x-4 flex-none rotate-176">
-                    <div className="content-stretch flex flex-col items-start relative w-[177.643px]">
-                      <div className="flex h-[31.903px] items-center justify-center relative shrink-0 w-[29.891px]" data-node-id="164:20270">
-                        <div className="flex-none rotate-[-3.99deg] skew-x-[-3.99deg]">
-                          <div className="bg-white content-stretch flex items-center justify-center overflow-clip relative rounded-[745.455px] size-[29.818px]">
-                            <div className="relative shrink-0 size-[14.909px]" data-node-id="164:20271" data-name="trending_up">
-                              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgTrendingUp} />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex h-[89.352px] items-center justify-center relative shrink-0 w-[177.851px]" data-node-id="164:20274">
-                        <div className="flex-none rotate-[-3.99deg] skew-x-[-3.99deg]">
-                          <div className="[word-break:break-word] content-stretch flex flex-col gap-[8.945px] items-start justify-center leading-none not-italic relative text-[rgba(0,0,0,0.8)] w-[177.418px]" data-name="Performance">
-                            <p className="font-['PP_Palma:Fizzy_Heavy'] relative shrink-0 text-[50.933px] text-right tracking-[-1.0187px] whitespace-nowrap" data-node-id="164:20275">
-                              76%
-                            </p>
-                            <p className="font-['Roobert:Regular'] min-w-full relative shrink-0 text-[16.978px] tracking-[-0.3396px] w-[min-content]" data-node-id="164:20276">
-                              cost savings
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute contents h-[30.937px] left-[26.45px] top-[30.69px] w-[247.105px]" data-node-id="164:20310" data-name="logo">
-                <div className="absolute flex h-[30.937px] items-center justify-center left-[26.45px] top-[30.69px] w-[247.105px]" data-node-id="164:20309">
-                  <div className="-rotate-179 -scale-y-100 flex-none">
-                    <div className="bg-white h-[26.636px] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-size-[247.105px_30.937px] relative w-[246.677px]" style={{ maskImage: `url("${imgRectangle240648335}")` }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="absolute drop-shadow-[0px_8.996px_13.494px_rgba(0,0,0,0.2)] h-[356.659px] left-[316px] top-[421.5px] w-[370.118px]" data-node-id="164:20219">
-          <div className="absolute contents left-0 top-0" data-node-id="164:20220" data-name="image">
-            <div className="absolute flex h-[413.172px] items-center justify-center left-[-11.5px] top-[-16.24px] w-[381.613px]" data-node-id="164:20222">
-              <div className="flex-none rotate-4 skew-x-4">
-                <div className="h-[386.487px] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[11.495px_17.429px] mask-size-[370.118px_354.38px] relative rounded-[26.988px] w-[382.545px]" style={{ maskImage: `url("${imgSuppliedBrandPhotography}")` }} data-name="Supplied brand photography">
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[26.988px]">
-                    <img alt="" className="absolute h-full left-[-29.49%] max-w-none top-0 w-[129.49%]" src={imgSuppliedBrandPhotography1} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute contents left-0 top-0" data-node-id="164:20223" data-name="gradient">
-            <div className="absolute flex h-[413.172px] items-center justify-center left-[-11.5px] top-[-16.24px] w-[381.613px]" data-node-id="164:20225">
-              <div className="flex-none rotate-4 skew-x-4">
-                <div className="bg-gradient-to-b from-[58.655%] from-[rgba(0,0,0,0)] h-[386.487px] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[11.495px_17.429px] mask-size-[370.118px_354.38px] relative rounded-[26.988px] to-[91.614%] to-[rgba(0,0,0,0.8)] w-[382.545px]" style={{ maskImage: `url("${imgSuppliedBrandPhotography}")` }} data-name="Supplied brand photography" />
-              </div>
-            </div>
-          </div>
-          <div className="absolute bottom-[89.97px] flex h-[158.343px] items-center justify-center left-[17.5px] w-[195.349px]" data-node-id="164:20226">
-            <div className="flex-none rotate-4 skew-x-4">
-              <div className="h-[144.683px] relative w-[195.826px]" data-name="card">
-                <div className="absolute h-[142.73px] left-0 top-[2.08px] w-[195.826px]" data-node-id="164:20227">
-                  <div className="absolute inset-[0.59%_0_1.24%_0]">
-                    <img alt="" className="block max-w-none size-full" src={imgRectangle240648329} />
-                  </div>
-                </div>
-                <div className="-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex flex-col items-start left-1/2 top-1/2 w-[160.363px]" data-node-id="164:20228">
-                  <div className="flex h-[28.8px] items-center justify-center relative shrink-0 w-[26.983px]" data-node-id="164:20229">
-                    <div className="flex-none rotate-[-3.99deg] skew-x-[-3.99deg]">
-                      <div className="bg-[#e7fac2] content-stretch flex items-center justify-center overflow-clip relative rounded-[672.942px] size-[26.918px]">
-                        <div className="relative shrink-0 size-[13.459px]" data-node-id="164:20230" data-name="trending_up">
-                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgTrendingUp1} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex h-[72.275px] items-center justify-center relative shrink-0 w-[160.551px]" data-node-id="164:20233">
-                    <div className="flex-none rotate-[-3.99deg] skew-x-[-3.99deg]">
-                      <div className="[word-break:break-word] content-stretch flex flex-col gap-[8.075px] items-start leading-none not-italic relative text-[#005b55] w-[160.16px]" data-name="Performance">
-                        <p className="font-['PP_Palma:Fizzy_Heavy'] relative shrink-0 text-[40.482px] tracking-[-0.8096px] whitespace-nowrap" data-node-id="164:20234">
-                          230%
-                        </p>
-                        <p className="font-['Roobert:Regular'] min-w-full relative shrink-0 text-[13.494px] tracking-[-0.2699px] w-[min-content]" data-node-id="164:20235">
-                          revenue increase
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute bottom-[30.48px] flex items-center justify-center left-[24.05px] right-[24.84px]" data-node-id="164:20236" style={{ containerType: "size" }}>
-            <div className="-rotate-2 flex-none h-[hypot(0.292447cqw,70.6331cqh)] w-[hypot(99.7076cqw,-29.3669cqh)]">
-              <div className="content-stretch flex items-center justify-between overflow-clip relative w-full" data-name="Read story">
-                <div className="content-stretch flex h-[26.918px] items-center justify-center relative rounded-[17.365px] shrink-0" data-node-id="164:20237" data-name="button">
-                  <p className="[word-break:break-word] font-['Roobert:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[10.77px] text-white whitespace-nowrap" data-node-id="I164:20237;128:8627">
-                    Read story
-                  </p>
-                </div>
-                <div className="bg-[rgba(255,255,255,0.3)] content-stretch flex items-center justify-center overflow-clip relative rounded-[17.496px] shrink-0 size-[25.572px]" data-node-id="164:20238" data-name="Story action">
-                  <div className="relative shrink-0 size-[12.786px]" data-node-id="164:20239" data-name="arrow-up-right">
-                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowUpRight1} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute contents h-[36.125px] left-[20.14px] top-[27.8px] w-[102.86px]" data-node-id="164:20241" data-name="logo">
-            <div className="absolute flex h-[35.861px] items-center justify-center left-[20.14px] top-[27.8px] w-[105.636px]" data-node-id="164:20243">
-              <div className="flex-none rotate-[0.08deg]">
-                <div className="bg-white h-[35.716px] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-size-[102.86px_36.125px] relative w-[105.587px]" style={{ maskImage: `url("${imgRectangle240648327}")` }} />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="absolute flex h-[196.046px] items-center justify-center left-[1010.36px] top-[822.97px] w-[311.609px]" data-node-id="164:21980">
-          <div className="-rotate-2 flex-none">
-            <div className="bg-[rgba(255,255,255,0.2)] content-stretch flex items-center p-[8px] relative rounded-[22px] shadow-[0px_3.789px_15.157px_0px_rgba(0,0,0,0.1)]">
-              <div className="bg-white content-stretch flex flex-col gap-[9.897px] items-start overflow-clip p-[18.177px] relative rounded-[14px] shadow-[0px_10.286px_29.691px_0px_rgba(0,0,0,0.15)] shrink-0 w-[289.321px]" data-node-id="164:20327">
-                <div className="h-[32px] relative shrink-0 w-[75.469px]" data-node-id="164:20346" data-name="Screenshot 2026-10-31 at 20.52.49 1">
-                  <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgScreenshot20261031At2052491} />
-                </div>
-                <p className="[word-break:break-word] font-['Roobert:SemiBold'] h-[36.354px] leading-none min-w-full not-italic relative shrink-0 text-[18.177px] text-[rgba(0,0,0,0.8)] tracking-[-0.3635px] w-[min-content]" data-node-id="164:20329">{`Hunter & Gather collected 8,000+ product reviews`}</p>
-                <p className="[word-break:break-word] font-['Roobert:Regular'] leading-[1.2] min-w-full not-italic relative shrink-0 text-[12.118px] text-[rgba(0,0,0,0.8)] tracking-[-0.2424px] w-[min-content]" data-node-id="164:20330">{`By combining the power of REVIEWS.io and Klaviyo, Hunter & Gather collected over 8,000 reviews and earned a 4.9-star rating.`}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="absolute flex h-[204.394px] items-center justify-center left-[365.26px] top-[756.9px] w-[305.05px]" data-node-id="164:21979">
-          <div className="flex-none rotate-5">
-            <div className="bg-[rgba(255,255,255,0.2)] content-stretch flex items-center p-[8px] relative rounded-[20px] shadow-[0px_3.789px_15.157px_0px_rgba(0,0,0,0.1)]">
-              <div className="bg-white content-stretch flex flex-col gap-[9.39px] items-start overflow-clip p-[17.245px] relative rounded-[12px] shadow-[0px_4.695px_28.169px_0px_rgba(0,0,0,0.15)] shrink-0 w-[274.488px]" data-node-id="164:20332">
-                <div className="h-[20px] relative shrink-0 w-[72.512px]" data-node-id="164:20338" data-name="image 4913">
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <img alt="" className="absolute h-[376.28%] left-[-3.78%] max-w-none top-[-135.74%] w-[103.78%]" src={imgImage4913} />
-                  </div>
-                </div>
-                <p className="[word-break:break-word] font-['Roobert:SemiBold'] h-[34.491px] leading-none min-w-full not-italic relative shrink-0 text-[17.245px] text-[rgba(0,0,0,0.8)] tracking-[-0.3449px] w-[min-content]" data-node-id="164:20334">
-                  Boxraw achieved 98% positive reviews
-                </p>
-                <p className="[word-break:break-word] font-['Roobert:Regular'] leading-[1.2] min-w-full not-italic relative shrink-0 text-[11.497px] text-[rgba(0,0,0,0.8)] tracking-[-0.2299px] w-[min-content]" data-node-id="164:20335">
-                  BOXRAW got 350 reviews in the first 30 days, 98% of them is positive. Results revealed that displaying UGC increased trust and conversions.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="absolute flex h-[233.596px] items-center justify-center left-[962.7px] top-[190.94px] w-[343.397px]" data-node-id="164:21975">
-          <div className="flex-none rotate-[-4.59deg]">
-            <div className="bg-[rgba(255,255,255,0.2)] content-stretch flex items-center p-[8px] relative rounded-[24px] shadow-[0px_3.789px_15.157px_0px_rgba(0,0,0,0.1)]">
-              <div className="bg-white content-stretch flex flex-col gap-[10.666px] items-start overflow-clip p-[19.59px] relative rounded-[15.999px] shadow-[0px_11.085px_31.998px_0px_rgba(0,0,0,0.15)] shrink-0 w-[311.801px]" data-node-id="164:20245">
-                <div className="h-[44.34px] relative shrink-0 w-[77.516px]" data-node-id="164:20325" data-name="image 4912">
-                  <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage4912} />
-                </div>
-                <p className="[word-break:break-word] font-['Roobert:SemiBold'] h-[39.179px] leading-none min-w-full not-italic relative shrink-0 text-[19.59px] text-[rgba(0,0,0,0.8)] tracking-[-0.3918px] w-[min-content]" data-node-id="164:20322">
-                  30% Denman’s revenue affected by reviews
-                </p>
-                <p className="[word-break:break-word] font-['Roobert:Regular'] leading-[1.2] min-w-full not-italic relative shrink-0 text-[13.06px] text-[rgba(0,0,0,0.8)] tracking-[-0.2612px] w-[min-content]" data-node-id="164:20323">
-                  In just a year, Denman has collected over 7,000 reviews, and noted that authentic feedback is directly contributing to conversions and sales
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="absolute flex h-[390.967px] items-center justify-center left-[675.07px] top-[489.39px] w-[289.233px]" data-node-id="164:20277">
-          <div className="-rotate-5 flex-none">
-            <div className="drop-shadow-[0px_9.798px_14.696px_rgba(0,0,0,0.2)] h-[369.893px] overflow-clip relative rounded-[19.055px] w-[257.981px]">
-              <div className="absolute bottom-[-4.62px] h-[385.811px] left-[-149.66px] w-[500.677px]" data-node-id="164:20278" data-name="screen 1">
-                <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgScreen1} />
-              </div>
-              <div className="absolute bottom-[0.1px] h-[393.486px] left-[-1.09px] w-[257.981px]" data-node-id="164:20279" style={{ backgroundImage: "linear-gradient(180.07489659480635deg, rgba(0, 0, 0, 0) 70.777%, rgba(0, 0, 0, 0.8) 99.957%)" }} />
-              <div className="absolute bottom-[17.83px] content-stretch flex items-center justify-between left-[17.86px] overflow-clip right-[18.05px]" data-node-id="164:20280" data-name="Read story">
-                <div className="content-stretch flex h-[29.316px] items-center justify-center relative rounded-[18.913px] shrink-0" data-node-id="164:20281" data-name="button">
-                  <p className="[word-break:break-word] font-['Roobert:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[11.73px] text-white whitespace-nowrap" data-node-id="I164:20281;128:8627">
-                    Read story
-                  </p>
-                </div>
-                <div className="bg-[rgba(255,255,255,0.3)] content-stretch flex items-center justify-center overflow-clip relative rounded-[19.055px] shrink-0 size-[27.85px]" data-node-id="164:20282" data-name="Story action">
-                  <div className="relative shrink-0 size-[13.925px]" data-node-id="164:20283" data-name="arrow-up-right">
-                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowUpRight2} />
-                  </div>
-                </div>
-              </div>
-              <div className="absolute bottom-[68.49px] h-[159.126px] right-[24.1px] w-[216.818px]" data-node-id="164:20285" data-name="card">
-                <div className="absolute h-[152.973px] left-[-1.66px] top-[5.81px] w-[217.765px]" data-node-id="164:20286">
-                  <div className="absolute inset-[0.49%_0_0.34%_0.15%]">
-                    <img alt="" className="block max-w-none size-full" src={imgRectangle240648330} />
-                  </div>
-                </div>
-                <div className="absolute content-stretch flex flex-col gap-[8.795px] items-end right-[16.02px] top-[20.71px] w-[174.652px]" data-node-id="164:20287">
-                  <div className="bg-[#fffcdd] content-stretch flex items-center justify-center overflow-clip relative rounded-[732.901px] shrink-0 size-[29.316px]" data-node-id="164:20288">
-                    <div className="flex items-center justify-center relative shrink-0 size-[16.98px]" data-node-id="164:20289">
-                      <div className="-rotate-170 -scale-y-100 flex-none">
-                        <div className="relative size-[14.658px]" data-name="trending_up">
-                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgTrendingUp2} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="[word-break:break-word] content-stretch flex flex-col gap-[5.863px] h-[76.222px] items-end leading-none not-italic relative shrink-0 text-[rgba(0,0,0,0.8)] text-right w-full" data-node-id="164:20292">
-                    <p className="font-['PP_Palma:Fizzy_Heavy'] relative shrink-0 text-[44.089px] tracking-[-0.8818px] w-full" data-node-id="164:20293">
-                      +123%
-                    </p>
-                    <p className="font-['Roobert:Regular'] relative shrink-0 text-[14.696px] tracking-[-0.2939px] w-full" data-node-id="164:20294">
-                      YoY turnover growth
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute contents left-[178.07px] top-[11.59px]" data-node-id="164:20303" data-name="logo">
-                <div className="absolute contents left-[178.07px] top-[11.59px]" data-node-id="164:20304" data-name="Mask group">
-                  <div className="absolute bg-white h-[36.423px] left-[178.07px] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[0px_0.128px] mask-size-[68.259px_41.979px] top-[11.59px] w-[66.805px]" data-node-id="164:20302" style={{ maskImage: `url("${imgRectangle240648334}")` }} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="absolute left-[157px] top-[229.94px] w-[1120px] h-[783px]" data-node-id="164:20218" data-name="main">
+        <img
+          alt="Customer stories"
+          className="size-full object-contain pointer-events-none select-none"
+          src={imgCustomerStories}
+        />
       </div>
     </div>
 
