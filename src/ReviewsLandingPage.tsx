@@ -71,6 +71,18 @@ export default function ReviewsLandingPage() {
   const [viewportHeight, setViewportHeight] = useState(900);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [navHidden, setNavHidden] = useState(false);
+  const faqInnerRef = useRef<HTMLDivElement>(null);
+  const [faqHeight, setFaqHeight] = useState(0);
+
+  // The FAQ frame is scaled with a CSS transform, which doesn't shrink its layout box; track its height to reserve only the scaled space
+  useEffect(() => {
+    const el = faqInnerRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setFaqHeight(el.offsetHeight));
+    ro.observe(el);
+    setFaqHeight(el.offsetHeight);
+    return () => ro.disconnect();
+  }, []);
 
   // Nav hides when scrolling down; it returns at the top of the page or when the mouse reaches the top edge
   const { scrollY } = useScroll();
@@ -853,11 +865,13 @@ export default function ReviewsLandingPage() {
         className="relative w-full overflow-hidden flex justify-center bg-[#04635d] scroll-mt-[120px]"
       >
         <div
+          ref={faqInnerRef}
           style={{
             transform: `scale(${viewportScale})`,
             transformOrigin: "top center",
+            marginBottom: faqHeight ? `${faqHeight * (viewportScale - 1)}px` : 0,
           }}
-          className="bg-[#04635d] content-stretch flex flex-col items-center px-[80px] pt-[184px] pb-[160px] relative shrink-0 w-[1440px]"
+          className="bg-[#04635d] content-stretch flex flex-col items-center px-[80px] py-[120px] relative shrink-0 w-[1440px]"
           data-node-id="198:34207"
           data-name="FAQ section"
         >

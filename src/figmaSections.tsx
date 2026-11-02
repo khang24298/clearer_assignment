@@ -668,12 +668,12 @@ function Hero3Artwork({ progress }: Hero3Props) {
           </div>
 
           {/* Floating Golden Circles (Vector SVG) */}
-          <div className="absolute left-[38px] top-[146px] w-[242px] pointer-events-none select-none">
+          <div className="absolute left-[38px] top-[192px] w-[242px] pointer-events-none select-none">
             <img alt="" className="block w-full h-auto" src={imgCircles} />
           </div>
 
           {/* Pineapple Graphic with green crown and diamond texture (Vector SVG) */}
-          <div className="absolute left-[134px] top-[162px] w-[148px] -rotate-[7.77deg] pointer-events-none select-none">
+          <div className="absolute left-[122px] top-[222px] w-[180px] -rotate-[7.77deg] pointer-events-none select-none">
             <img alt="" className="block w-full h-auto" src={imgIllus} />
           </div>
 
@@ -704,7 +704,7 @@ function Hero3Artwork({ progress }: Hero3Props) {
           rotate: starRotate,
           opacity: starOpacity,
         }}
-        className="absolute left-[200px] top-[680px] w-[320px] h-[320px] z-30 origin-center pointer-events-none filter blur-[3.5px] drop-shadow-xl"
+        className="absolute left-[240px] top-[760px] w-[320px] h-[320px] z-30 origin-center pointer-events-none filter blur-[3.5px] drop-shadow-xl"
       >
         <motion.div
           animate={{ y: [0, -12, 0], rotate: [0, 2, 0] }}
@@ -728,7 +728,7 @@ function Hero3Artwork({ progress }: Hero3Props) {
           rotate: cartRotate,
           opacity: cartOpacity,
         }}
-        className="absolute left-[720px] top-[660px] w-[580px] h-[520px] z-30 origin-center pointer-events-none filter blur-[14px] drop-shadow-2xl"
+        className="absolute left-[790px] top-[680px] w-[580px] h-[520px] z-30 origin-center pointer-events-none filter blur-[14px] drop-shadow-2xl"
       >
         <motion.div
           animate={{ y: [0, -8, 0], rotate: [0, -1.5, 0] }}
