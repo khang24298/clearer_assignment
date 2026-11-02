@@ -922,7 +922,7 @@ export function FigmaAiInsights() {
           title="Click to replay animation"
         >
           <div
-            className="content-stretch flex flex-col gap-[6px] items-center px-[80px] relative shrink-0 w-full"
+            className="content-stretch flex flex-col gap-0 items-center px-[80px] relative shrink-0 w-full"
             data-node-id="164:20402"
             data-name="Heading and subheading"
           >
@@ -952,7 +952,7 @@ export function FigmaAiInsights() {
                 opacity: { duration: 10, times: [0, 0.23, 0.33, 1], ease: ["linear", [0.5, 0, 0.5, 1], "linear"], repeat: Infinity },
                 y: { duration: 10, times: [0, 0.15, 0.25, 1], ease: ["linear", [0.05, 0.4, 0.5, 1], "linear"], repeat: Infinity },
               }}
-              className="w-full flex justify-center h-[115.2px]"
+              className="w-full flex justify-center -mt-[12px]"
               data-node-id="164:20426"
             >
               <p
@@ -971,7 +971,7 @@ export function FigmaAiInsights() {
                 opacity: { duration: 10, times: [0, 0.35, 0.45, 1], ease: ["linear", [0.5, 0, 0.5, 1], "linear"], repeat: Infinity },
                 y: { duration: 10, times: [0, 0.25, 0.35, 1], ease: ["linear", [0.05, 0.4, 0.5, 1], "linear"], repeat: Infinity },
               }}
-              className="w-full flex justify-center"
+              className="w-full flex justify-center -mt-[12px]"
             >
               <p
                 className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] not-italic relative shrink-0 text-[90px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"

@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import {
   motion,
   useScroll,
+  useMotionValueEvent,
   useTransform,
   useSpring,
   AnimatePresence,
@@ -70,6 +71,23 @@ export default function ReviewsLandingPage() {
   const [viewportScale, setViewportScale] = useState(1);
   const [viewportHeight, setViewportHeight] = useState(900);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const [navHidden, setNavHidden] = useState(false);
+
+  // Nav hides when scrolling down, returns when scrolling up, at the top, or when the mouse reaches the top edge
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const prev = scrollY.getPrevious() ?? 0;
+    if (latest < 80) setNavHidden(false);
+    else if (latest > prev) setNavHidden(true);
+    else if (latest < prev) setNavHidden(false);
+  });
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      if (e.clientY <= 60) setNavHidden(false);
+    };
+    window.addEventListener("mousemove", onMove);
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
 
   // Measure viewport so the 1440px Figma design scales cleanly on any screen
   useEffect(() => {
@@ -161,11 +179,11 @@ export default function ReviewsLandingPage() {
   // Slide 1 stays pinned at x=0
   const slide1X = useTransform(howProgress, [0, 1], [0, 0]);
 
-  // Slide 2 glides horizontally from 100% (completely offscreen right) to 0% (covering Slide 1)
-  const slide2X = useTransform(howProgress, [0.12, 0.48], ["100%", "0%"]);
+  // Slide 2 glides horizontally from 20px peeking in at the right edge to 0% (covering Slide 1)
+  const slide2X = useTransform(howProgress, [0.12, 0.48], ["calc(100% - 40px)", "calc(0% - 0px)"]);
 
-  // Slide 3 glides horizontally from 100% (completely offscreen right) to 0% (covering Slide 2)
-  const slide3X = useTransform(howProgress, [0.52, 0.88], ["100%", "0%"]);
+  // Slide 3 glides horizontally from 20px peeking in at the right edge to 0% (covering Slide 2)
+  const slide3X = useTransform(howProgress, [0.52, 0.88], ["calc(100% - 20px)", "calc(0% - 0px)"]);
 
   const [activeHowSlide, setActiveHowSlide] = useState(0);
   useEffect(() => {
@@ -230,8 +248,8 @@ export default function ReviewsLandingPage() {
     target: storiesSectionRef,
     offset: ["start end", "center center"],
   });
-  const storiesScale = useTransform(storiesProgress, [0, 1], [0.92, 1]);
-  const storiesY = useTransform(storiesProgress, [0, 1], [70, 0]);
+  const storiesScale = useTransform(storiesProgress, [0, 1], [0.8, 1.05]);
+  const storiesY = useTransform(storiesProgress, [0, 1], [100, 0]);
 
   const provenWords =
     "Thousands of merchants have grown faster by leveraging customer feedback, UGC and AI insights, enabling them to take data-driven actions.".split(
@@ -248,13 +266,10 @@ export default function ReviewsLandingPage() {
     viewportScale,
     Math.max(0.72, (viewportHeight - 40) / 840)
   );
-  // Hero 1 is fitted exactly to the space below the fixed nav (width- and height-aware).
+  // Hero 1 and 2 keep their Figma size (only width-scaled), so the card image is never shrunk by viewport height.
   // The frame's own 80px top padding tucks ~40px under the nav's bottom edge, so the heading never gets covered.
   const heroNavBottom = Math.round(96 * viewportScale);
-  const hero1ContentScale = Math.min(
-    viewportScale,
-    Math.max(0.25, (viewportHeight - heroNavBottom - 12) / 977)
-  );
+  const hero1ContentScale = viewportScale;
   // Hero 3 is a 1440 × 1262 Figma frame. Fit the complete composition into
   // the sticky viewport without changing its internal geometry.
   const hero3ContentScale = Math.min(
@@ -279,11 +294,12 @@ export default function ReviewsLandingPage() {
       >
         <motion.div
           initial={{ y: -60, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          animate={navHidden ? { y: -140, opacity: 0 } : { y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           style={{
-            transform: `scale(${viewportScale})`,
+            scale: viewportScale,
             transformOrigin: "top center",
+            pointerEvents: navHidden ? "none" : "auto",
           }}
           className="pointer-events-auto backdrop-blur-xl rounded-[1000px] shadow-[0_8px_32px_rgba(1,89,83,0.12)] border border-white/40 transition-shadow hover:shadow-[0_12px_40px_rgba(1,89,83,0.18)]"
         >
@@ -803,7 +819,7 @@ export default function ReviewsLandingPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           style={{
-            transform: `scale(${viewportScale})`,
+            scale: viewportScale,
             transformOrigin: "top center",
             height: `${328 * viewportScale}px`,
           }}
@@ -826,7 +842,7 @@ export default function ReviewsLandingPage() {
             transform: `scale(${viewportScale})`,
             transformOrigin: "top center",
           }}
-          className="bg-[#04635d] content-stretch flex flex-col items-center overflow-clip py-[96px] relative shrink-0"
+          className="bg-[#04635d] content-stretch flex flex-col items-center overflow-clip px-[80px] py-[96px] relative shrink-0 w-[1440px]"
           data-node-id="198:34207"
           data-name="FAQ section"
         >

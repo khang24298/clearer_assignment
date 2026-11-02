@@ -1166,7 +1166,7 @@ function FigmaAiInsights() {
           title="Click to replay animation"
         >
           <div
-            className="content-stretch flex flex-col gap-[6px] items-center px-[80px] relative shrink-0 w-full"
+            className="content-stretch flex flex-col gap-0 items-center px-[80px] relative shrink-0 w-full"
             data-node-id="164:20402"
             data-name="Heading and subheading"
           >
@@ -1181,7 +1181,7 @@ function FigmaAiInsights() {
             </motion.div>
 
             {/* Step 2: that turn customer */}
-            <motion.div variants={lineVariants} className="w-full flex justify-center h-[115.2px]" data-node-id="164:20426">
+            <motion.div variants={lineVariants} className="w-full flex justify-center -mt-[12px]" data-node-id="164:20426">
               <p
                 className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] not-italic text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
                 data-node-id="164:20427"
@@ -1191,7 +1191,7 @@ function FigmaAiInsights() {
             </motion.div>
 
             {/* Step 3: feedback into growth */}
-            <motion.div variants={lineVariants} className="w-full flex justify-center">
+            <motion.div variants={lineVariants} className="w-full flex justify-center -mt-[12px]">
               <p
                 className="[word-break:break-word] bg-clip-text bg-gradient-to-b font-['PP_Palma:Fizzy_Heavy'] from-[#015953] from-[64.626%] leading-[1.2] not-italic relative shrink-0 text-[96px] text-[transparent] text-center to-[#077c74] to-[87.857%] tracking-[-1.92px] w-[1200px]"
                 data-node-id="164:20443"
